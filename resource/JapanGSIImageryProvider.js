@@ -135,7 +135,7 @@
         var url;
         if (imageryProvider._layerLists[level]) {
             var layer = imageryProvider._layerLists[level];
-            url = "http://cyberjapandata.gsi.go.jp/xyz/" + layer.id + "/" + level + "/" + x + "/" + y + "." + layer.ext;
+            url = "http://maps.gsi.go.jp/xyz/" + layer.id + "/" + level + "/" + x + "/" + y + "." + layer.ext;
         } else {
             url = imageryProvider._url + level + '/' + x + '/' + y + '.' + imageryProvider._fileExtension;
         }
