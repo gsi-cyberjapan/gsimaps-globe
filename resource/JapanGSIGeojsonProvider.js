@@ -36,6 +36,7 @@ var JapanGSIGeojsonProvider = function(options){
 			"repPt":"代表点表示",
 			"gaiji":"外字フラグ",
 			"noChar":"総文字数",
+/*
 			"charG1":"文字グループ1",
 			"charG2":"文字グループ2",
 			"charG3":"文字グループ3",
@@ -58,6 +59,7 @@ var JapanGSIGeojsonProvider = function(options){
 			"charG20":"文字グループ20",
 			"charG21":"文字グループ21",
 			"charG22":"文字グループ22"
+*/
 		},
 		"annostyle" : {
 			"行政区画（市区町村）": {"size": 32.5,"color": "#000000"},

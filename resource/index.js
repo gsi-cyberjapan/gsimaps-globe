@@ -47,8 +47,8 @@ function changeMap(layerName){
 function showPoint(lon, lat) {
   if (lon != "" || lat != "") {
     // 各リンクURLを構築
-    var link = "http://maps.gsi.go.jp/?ll=" + lat + "," + lon + "&z=15&base=std&vs=c1j0l0u0";
-    var link_3D = "http://cyberjapandata.gsi.go.jp/3d/site/index.html?z=14&lat=" + lat + "&lon=" + lon;
+    var link = "http://maps.gsi.go.jp/#15/" + lat +"/"+ lon + "/&base=std&ls=std&disp=1&vs=c1j0l0u0f0";
+    var link_3D = "http://maps.gsi.go.jp/index_3d.html?z=14&lat=" + lat + "&lon=" + lon + "&pxsize=2048&ls=std";
     var link_geolib = "http://geolib.gsi.go.jp/map_search/results?lat=" + lat + "&lon=" + lon;
     // 結果エリアに埋め込み
     if (document.getElementById) {
