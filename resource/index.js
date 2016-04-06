@@ -856,10 +856,9 @@ function XMLHttpRequestByPost(postdata) {
   var request = createXMLHttpRequest();
 
   // ステータス( 読み込み中なのか完了したのか) が変更されたら、readyStateChangeHandler を実行
-  request.open("POST", "http://globe.gsi.go.jp/resource/keysearch.php", true);
+  request.open("GET",'http://msearch.gsi.go.jp/address-search/AddressSearch?q=' + encodeURI(postdata), true);
   request.onreadystatechange = readyStateChangeHandler;
-  request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-  request.send("keyword=" + postdata);
+  request.send();
 
   function readyStateChangeHandler() {
     switch (request.readyState) {
@@ -869,15 +868,15 @@ function XMLHttpRequestByPost(postdata) {
         var resultJson = request.responseText;
         var obj = eval("(" + resultJson + ")");
 
-        var count = obj.count;
+        var count = obj.length;
         document.getElementById("count").innerHTML = "検索結果：" + count + "件" +
         "<div align='right'><font size='1'>協力：<a href='http://newspat.csis.u-tokyo.ac.jp/geocode/' target='csis'>東大CSIS</a></font></div>";
 
         var urlString = "<ul>";
         for (var i = 0; i < count; i++) {
-          var name = obj.searchResult[i].name;
-          var lat = obj.searchResult[i].lat;
-          var lon = obj.searchResult[i].lon;
+          var name = obj[i].properties.title;
+          var lat = obj[i].geometry.coordinates[1];
+          var lon = obj[i].geometry.coordinates[0];
           var url = "<li><a href='javascript:void(0)' onclick='fly(" + lon + "," + lat + ",2500.0);'>" + name + "<\/a><\/li>";
           urlString += url;
         }
