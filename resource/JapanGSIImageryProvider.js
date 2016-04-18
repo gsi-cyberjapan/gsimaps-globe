@@ -135,7 +135,11 @@
         var url;
         if (imageryProvider._layerLists[level]) {
             var layer = imageryProvider._layerLists[level];
-            url = "http://maps.gsi.go.jp/xyz/" + layer.id + "/" + level + "/" + x + "/" + y + "." + layer.ext;
+            if (layer.url) {
+            	url = layer.url+"/" + layer.id + "/" + level + "/" + x + "/" + y + "." + layer.ext;
+            } else {
+            	url = "http://maps.gsi.go.jp/xyz/" + layer.id + "/" + level + "/" + x + "/" + y + "." + layer.ext;
+            }
         } else {
             url = imageryProvider._url + level + '/' + x + '/' + y + '.' + imageryProvider._fileExtension;
         }

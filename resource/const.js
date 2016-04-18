@@ -170,6 +170,29 @@ var defaultLayerIDs = {
 		},
 	},
 	"防災関係" :{
+		"平成28年熊本地震":{
+			"afm": {
+				"id": "afm",
+				"name": "都市圏活断層図",
+				"ext": "png",
+				"url": "http://cyberjapandata.gsi.go.jp/xyz",
+				"zoom": "2-18"
+			},
+			"urgent_earthquake_20160414kumamoto_20141114_20160415_u06l": {
+				"id": "urgent_earthquake_20160414kumamoto_20141114_20160415_u06l",
+				"name": "SAR解析結果　2014/11/14～2016/04/15_DL",
+				"ext": "png",
+				"url": "http://insarmap.gsi.go.jp/xyz",
+				"zoom": "2-18"
+			},
+			"active_fault_suihon": {
+				"id": "active_fault_suihon",
+				"name": "SAR解析結果　活断層図（地震調査研究推進本部）",
+				"ext": "png",
+				"url": "http://insarmap.gsi.go.jp/xyz",
+				"zoom": "2-18"
+			},
+		},
 		"口永良部島の火山活動":{
 			"20150911dol": {
 				"id": "20150911dol",
