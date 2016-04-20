@@ -22,6 +22,7 @@
 
 <script src="resource/JapanGSIGeojsonProvider.js"></script>
 <script src="resource/JapanGSIImageryProvider.js"></script>
+<script src="resource/JapanGSITerrainProvider.js"></script>
 <script src="resource/jquery-2.2.0.min.js"></script>
 <script src="resource/jquery-ui.1.9.2.js"></script>
 <script src="resource/const.js"></script>
@@ -280,9 +281,15 @@ function init(){
 
 
 	// terrain
-	viewer.scene.terrainProvider = new Cesium.CesiumTerrainProvider({
-		url : terrainProviderURL
-	});
+//	viewer.scene.terrainProvider = new Cesium.CesiumTerrainProvider({
+//		url : terrainProviderURL
+//	});
+var terrainProvider = new Cesium.JapanGSITerrainProvider({});
+viewer.terrainProvider = terrainProvider;
+viewer.terrainProvider.heightmapTerrainQuality = 0.1;
+viewer.terrainProvider.hasVertexNormals = false;
+viewer.terrainProvider.hasWaterMask = false;
+
 	// terrainにドレープするためtrueにする
 	viewer.scene.globe.depthTestAgainstTerrain = true;
 
