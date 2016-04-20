@@ -24,7 +24,6 @@ SOFTWARE.
 */
 
 
-//**
 (function(){
 var
     defaultValue = Cesium.defaultValue,
@@ -38,7 +37,7 @@ var
     HeightmapTerrainData = Cesium.HeightmapTerrainData,
     TerrainProvider = Cesium.TerrainProvider,
     when = Cesium.when;
-/**/
+
     "use strict";
 
     var trailingSlashRegex = /\/$/;
