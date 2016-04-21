@@ -17,6 +17,134 @@ var geojsonTileMaxZoomLevel = 15;
  * タイルの定義
  */
 var defaultLayerIDs = {
+		"平成28年熊本地震":{
+			"20160414kumamoto_0420dol01": {
+				"id": "20160414kumamoto_0420dol01",
+				"name": "西原2地区正射画像(4/20撮影)",
+				"ext": "png",
+				"url": "http://maps.gsi.go.jp/xyz",
+				"zoom": "10-18"
+			},
+			"20160414kumamoto_0419dol2": {
+				"id": "20160414kumamoto_0419dol2",
+				"name": "南阿蘇2地区A正射画像(4/19撮影)",
+				"ext": "png",
+				"url": "http://maps.gsi.go.jp/xyz",
+				"zoom": "10-18"
+			},
+			"20160414kumamoto_0419dol6": {
+				"id": "20160414kumamoto_0419dol6",
+				"name": "小国地区正射画像(4/19撮影)",
+				"ext": "png",
+				"url": "http://maps.gsi.go.jp/xyz",
+				"zoom": "10-18"
+			},
+			"20160414kumamoto_0416dol1": {
+				"id": "20160414kumamoto_0416dol1",
+				"name": "熊本地区正射画像(4/16撮影)",
+				"ext": "png",
+				"url": "http://maps.gsi.go.jp/xyz",
+				"zoom": "10-18"
+			},
+			"20160414kumamoto_0416dol2": {
+				"id": "20160414kumamoto_0416dol2",
+				"name": "宇土地区正射画像(4/16撮影)",
+				"ext": "png",
+				"url": "http://maps.gsi.go.jp/xyz",
+				"zoom": "10-18"
+			},
+			"20160414kumamoto_0416dol3": {
+				"id": "20160414kumamoto_0416dol3",
+				"name": "合志地区正射画像(4/16撮影)",
+				"ext": "png",
+				"url": "http://maps.gsi.go.jp/xyz",
+				"zoom": "10-18"
+			},
+			"20160414kumamoto_0416dol4": {
+				"id": "20160414kumamoto_0416dol4",
+				"name": "西原地区正射画像(4/16撮影)",
+				"ext": "png",
+				"url": "http://maps.gsi.go.jp/xyz",
+				"zoom": "10-18"
+			},
+			"20160414kumamoto_0416dol5": {
+				"id": "20160414kumamoto_0416dol5",
+				"name": "阿蘇地区正射画像(4/16撮影)",
+				"ext": "png",
+				"url": "http://maps.gsi.go.jp/xyz",
+				"zoom": "10-18"
+			},
+			"20160414kumamoto_0416dol6": {
+				"id": "20160414kumamoto_0416dol6",
+				"name": "南阿蘇地区正射画像(4/16撮影)",
+				"ext": "png",
+				"url": "http://maps.gsi.go.jp/xyz",
+				"zoom": "10-18"
+			},
+			"20160414kumamoto_0416dol7": {
+				"id": "20160414kumamoto_0416dol7",
+				"name": "別府地区正射画像(4/16撮影)",
+				"ext": "png",
+				"url": "http://maps.gsi.go.jp/xyz",
+				"zoom": "10-18"
+			},
+			"20160414kumamoto_0415dol1": {
+				"id": "20160414kumamoto_0415dol1",
+				"name": "益城地区正射画像(4/15撮影)",
+				"ext": "png",
+				"url": "http://maps.gsi.go.jp/xyz",
+				"zoom": "10-18"
+			},
+			"20160414kumamoto_0415dol2": {
+				"id": "20160414kumamoto_0415dol2",
+				"name": "熊本南地区正射画像(4/15撮影)",
+				"ext": "png",
+				"url": "http://maps.gsi.go.jp/xyz",
+				"zoom": "10-18"
+			},
+			"20160414kumamoto_0415dol3": {
+				"id": "20160414kumamoto_0415dol3",
+				"name": "宇城地区正射画像(4/15撮影)",
+				"ext": "png",
+				"url": "http://maps.gsi.go.jp/xyz",
+				"zoom": "10-18"
+			},
+			"afm": {
+				"id": "afm",
+				"name": "都市圏活断層図",
+				"ext": "png",
+				"url": "http://maps.gsi.go.jp/xyz",
+				"zoom": "2-16"
+			},
+			"active_fault_suihon": {
+				"id": "active_fault_suihon",
+				"name": "活断層図（地震調査研究推進本部）",
+				"ext": "png",
+				"url": "http://insarmap.gsi.go.jp/xyz",
+				"zoom": "3-11"
+			},
+			"urgent_earthquake_20160414kumamoto_20160307_20160418_u07r": {
+				"id": "urgent_earthquake_20160414kumamoto_20160307_20160418_u07r",
+				"name": "SAR解析結果　2016/03/07～2016/04/18_DR",
+				"ext": "png",
+				"url": "http://insarmap.gsi.go.jp/xyz",
+				"zoom": "5-15"
+			},
+			"urgent_earthquake_20160414kumamoto_20150517_20160417_u12r": {
+				"id": "urgent_earthquake_20160414kumamoto_20150517_20160417_u12r",
+				"name": "SAR解析結果　2015/05/18～2016/04/18_AR",
+				"ext": "png",
+				"url": "http://insarmap.gsi.go.jp/xyz",
+				"zoom": "5-15"
+			},
+			"urgent_earthquake_20160414kumamoto_20141114_20160415_u06l": {
+				"id": "urgent_earthquake_20160414kumamoto_20141114_20160415_u06l",
+				"name": "SAR解析結果　2014/11/14～2016/04/15_DL",
+				"ext": "png",
+				"url": "http://insarmap.gsi.go.jp/xyz",
+				"zoom": "5-15"
+			},
+		},
 	"地図・空中写真" :{
 		"写真":{
 			"ort": {
@@ -170,29 +298,6 @@ var defaultLayerIDs = {
 		},
 	},
 	"防災関係" :{
-		"平成28年熊本地震":{
-			"afm": {
-				"id": "afm",
-				"name": "都市圏活断層図",
-				"ext": "png",
-				"url": "http://cyberjapandata.gsi.go.jp/xyz",
-				"zoom": "2-18"
-			},
-			"urgent_earthquake_20160414kumamoto_20141114_20160415_u06l": {
-				"id": "urgent_earthquake_20160414kumamoto_20141114_20160415_u06l",
-				"name": "SAR解析結果　2014/11/14～2016/04/15_DL",
-				"ext": "png",
-				"url": "http://insarmap.gsi.go.jp/xyz",
-				"zoom": "2-18"
-			},
-			"active_fault_suihon": {
-				"id": "active_fault_suihon",
-				"name": "SAR解析結果　活断層図（地震調査研究推進本部）",
-				"ext": "png",
-				"url": "http://insarmap.gsi.go.jp/xyz",
-				"zoom": "2-18"
-			},
-		},
 		"口永良部島の火山活動":{
 			"20150911dol": {
 				"id": "20150911dol",
