@@ -25,9 +25,30 @@ var defaultLayerIDs = {
 				"url": "http://maps.gsi.go.jp/xyz",
 				"zoom": "10-18"
 			},
+			"20160414kumamoto_0420dol03": {
+				"id": "20160414kumamoto_0420dol03",
+				"name": "南阿蘇2地区正射画像(4/20撮影)",
+				"ext": "png",
+				"url": "http://maps.gsi.go.jp/xyz",
+				"zoom": "10-18"
+			},
+			"20160414kumamoto_0420dol10": {
+				"id": "20160414kumamoto_0420dol10",
+				"name": "竹田地区正射画像(4/20撮影)",
+				"ext": "png",
+				"url": "http://maps.gsi.go.jp/xyz",
+				"zoom": "10-18"
+			},
+			"20160414kumamoto_0420dol11": {
+				"id": "20160414kumamoto_0420dol11",
+				"name": "湯布院地区正射画像(4/20撮影)",
+				"ext": "png",
+				"url": "http://maps.gsi.go.jp/xyz",
+				"zoom": "10-18"
+			},
 			"20160414kumamoto_0419dol2": {
 				"id": "20160414kumamoto_0419dol2",
-				"name": "南阿蘇2地区A正射画像(4/19撮影)",
+				"name": "南阿蘇2地区正射画像(4/19撮影)",
 				"ext": "png",
 				"url": "http://maps.gsi.go.jp/xyz",
 				"zoom": "10-18"
@@ -123,27 +144,48 @@ var defaultLayerIDs = {
 				"url": "http://insarmap.gsi.go.jp/xyz",
 				"zoom": "3-11"
 			},
+			"urgent_earthquake_20160414kumamoto_20150114_20160420_u09l": {
+				"id": "urgent_earthquake_20160414kumamoto_20150114_20160420_u09l",
+				"name": "SAR解析結果　2015/01/14～2016/04/20_DL",
+				"ext": "png",
+				"url": "http://insarmap.gsi.go.jp/xyz",
+				"zoom": "5-18"
+			},
+			"urgent_earthquake_20160414kumamoto_20160126_20160419_w02l": {
+				"id": "urgent_earthquake_20160414kumamoto_20160126_20160419_w02l",
+				"name": "SAR解析結果　2016/01/26～2016/04/19_AL",
+				"ext": "png",
+				"url": "http://insarmap.gsi.go.jp/xyz",
+				"zoom": "5-18"
+			},
+			"urgent_earthquake_20160414kumamoto_20150209_20160418_v03r": {
+				"id": "urgent_earthquake_20160414kumamoto_20150209_20160418_v03r",
+				"name": "SAR解析結果　2015/02/10～2016/04/19_AR",
+				"ext": "png",
+				"url": "http://insarmap.gsi.go.jp/xyz",
+				"zoom": "5-18"
+			},
 			"urgent_earthquake_20160414kumamoto_20160307_20160418_u07r": {
 				"id": "urgent_earthquake_20160414kumamoto_20160307_20160418_u07r",
 				"name": "SAR解析結果　2016/03/07～2016/04/18_DR",
 				"ext": "png",
 				"url": "http://insarmap.gsi.go.jp/xyz",
-				"zoom": "5-15"
+				"zoom": "5-18"
 			},
 			"urgent_earthquake_20160414kumamoto_20150517_20160417_u12r": {
 				"id": "urgent_earthquake_20160414kumamoto_20150517_20160417_u12r",
 				"name": "SAR解析結果　2015/05/18～2016/04/18_AR",
 				"ext": "png",
 				"url": "http://insarmap.gsi.go.jp/xyz",
-				"zoom": "5-15"
+				"zoom": "5-18"
 			},
 			"urgent_earthquake_20160414kumamoto_20141114_20160415_u06l": {
 				"id": "urgent_earthquake_20160414kumamoto_20141114_20160415_u06l",
 				"name": "SAR解析結果　2014/11/14～2016/04/15_DL",
 				"ext": "png",
 				"url": "http://insarmap.gsi.go.jp/xyz",
-				"zoom": "5-15"
-			},
+				"zoom": "5-18"
+			}
 		},
 	"地図・空中写真" :{
 		"写真":{
@@ -194,7 +236,7 @@ var defaultLayerIDs = {
 				"name": "1945～1950年",
 				"ext": "png",
 				"zoom": "15-17"
-			},
+			}
 		},
 		"東日本大震災後正射画像":{
 			"toho4": {
@@ -220,7 +262,7 @@ var defaultLayerIDs = {
 				"name": "2011年3月～2011年4月",
 				"ext": "jpg",
 				"zoom": "15-18"
-			},
+			}
 		},
 		"fukkokizu": {
 			"id": "fukkokizu",
@@ -270,7 +312,7 @@ var defaultLayerIDs = {
 				"name": "数値地図5000（土地利用）：近畿圏（2008年）",
 				"ext": "png",
 				"zoom": "13-16"
-			},
+			}
 		},
 		"std": {
 			"id": "std",
@@ -295,7 +337,7 @@ var defaultLayerIDs = {
 			"name": "English",
 			"ext": "png",
 			"zoom": "5-11"
-		},
+		}
 	},
 	"防災関係" :{
 		"口永良部島の火山活動":{
@@ -310,7 +352,7 @@ var defaultLayerIDs = {
 				"name": "口永良部島の火山活動　UAV撮影による正射画像（2015年7月14日撮影)",
 				"ext": "png",
 				"zoom": "14-18"
-			},
+			}
 		},
 		"西之島付近噴火活動":{
 			"20131204doh": {
@@ -436,7 +478,7 @@ var defaultLayerIDs = {
 				"name": "平成27年9月関東・東北豪雨 結城地区 正射画像（2015年9月11日撮影)",
 				"ext": "png",
 				"zoom": "10-18"
-			},
+			}
 		},
 		"7月17日からの大雨 山口地方「須佐地区」正射画像":{
 			"20130717dol": {
@@ -470,7 +512,7 @@ var defaultLayerIDs = {
 				"name": "台風第26号・27号の大雨（大島町）正射画像（2013年10月28日撮影）",
 				"ext": "png",
 				"zoom": "10-18"
-			},
+			}
 		},
 		"20140711dol": {
 			"id": "20140711dol",
@@ -538,8 +580,8 @@ var defaultLayerIDs = {
 				"name": "8月16日からの大雨（広島市内）正射画像（2014年8月30・31日撮影）",
 				"ext": "png",
 				"zoom": "10-18"
-			},		
-		},
+			}
+		}
 	},
 	"提供実験":{
 		"geojson": {
