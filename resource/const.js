@@ -11,8 +11,6 @@ var terrainProviderURL = "http://cyberjapandata.gsi.go.jp/xyz/globe_terraindata"
  */
 var geojsonTileMaxZoomLevel = 15;
 
-
-
 /*
  * タイルの定義
  */
@@ -25,9 +23,58 @@ var defaultLayerIDs = {
 				"url": "http://maps.gsi.go.jp/xyz",
 				"zoom": "10-18"
 			},
+			"20160414kumamoto_0420dol02": {
+				"id": "20160414kumamoto_0420dol02",
+				"name": "阿蘇2地区正射画像(4/20撮影)",
+				"ext": "png",
+				"url": "http://maps.gsi.go.jp/xyz",
+				"zoom": "10-18"
+			},
 			"20160414kumamoto_0420dol03": {
 				"id": "20160414kumamoto_0420dol03",
 				"name": "南阿蘇2地区正射画像(4/20撮影)",
+				"ext": "png",
+				"url": "http://maps.gsi.go.jp/xyz",
+				"zoom": "10-18"
+			},
+			"20160414kumamoto_0420dol04": {
+				"id": "20160414kumamoto_0420dol04",
+				"name": "御船地区正射画像(4/20撮影)",
+				"ext": "png",
+				"url": "http://maps.gsi.go.jp/xyz",
+				"zoom": "10-18"
+			},
+			"20160414kumamoto_0420dol05": {
+				"id": "20160414kumamoto_0420dol05",
+				"name": "八代地区正射画像(4/20撮影)",
+				"ext": "png",
+				"url": "http://maps.gsi.go.jp/xyz",
+				"zoom": "10-18"
+			},
+			"20160414kumamoto_0420dol06": {
+				"id": "20160414kumamoto_0420dol06",
+				"name": "天草地区正射画像(4/19,20撮影)",
+				"ext": "png",
+				"url": "http://maps.gsi.go.jp/xyz",
+				"zoom": "10-18"
+			},
+			"20160414kumamoto_0420dol07": {
+				"id": "20160414kumamoto_0420dol07",
+				"name": "玉名地区正射画像(4/20撮影)",
+				"ext": "png",
+				"url": "http://maps.gsi.go.jp/xyz",
+				"zoom": "10-18"
+			},
+			"20160414kumamoto_0420dol08": {
+				"id": "20160414kumamoto_0420dol08",
+				"name": "山鹿地区正射画像(4/19,20撮影)",
+				"ext": "png",
+				"url": "http://maps.gsi.go.jp/xyz",
+				"zoom": "10-18"
+			},
+			"20160414kumamoto_0420dol09": {
+				"id": "20160414kumamoto_0420dol09",
+				"name": "菊池地区正射画像(4/20撮影)",
 				"ext": "png",
 				"url": "http://maps.gsi.go.jp/xyz",
 				"zoom": "10-18"
@@ -42,6 +89,13 @@ var defaultLayerIDs = {
 			"20160414kumamoto_0420dol11": {
 				"id": "20160414kumamoto_0420dol11",
 				"name": "湯布院地区正射画像(4/20撮影)",
+				"ext": "png",
+				"url": "http://maps.gsi.go.jp/xyz",
+				"zoom": "10-18"
+			},
+			"20160414kumamoto_0419dol1": {
+				"id": "20160414kumamoto_0419dol1",
+				"name": "熊本地区正射画像(4/19撮影)",
 				"ext": "png",
 				"url": "http://maps.gsi.go.jp/xyz",
 				"zoom": "10-18"
