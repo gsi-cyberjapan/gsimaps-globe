@@ -6,7 +6,7 @@
 ## 利用上の留意点
 利用上の留意点は次の通りです。[LICENSE](LICENSE)もあわせてご参照ください。
 
-- 本レポジトリで提供しているのは、国土地理院が運営する「地理院地図Globe」http://maps.gsi.go.jp/globe/ のソースです。
+- 本レポジトリで提供しているのは、国土地理院が運営する「地理院地図Globe」http://maps.gsi.go.jp/globe/index_globe.html のソースです。
 - [Cesium](https://github.com/AnalyticalGraphicsInc/cesium), [Cesium-JapanGSI](https://github.com/tilemapjp/Cesium-JapanGSI), [jQuery](https://github.com/jquery/jquery) 等の既存ソフトウェアについては既存ソフトウェアのライセンスが適用されます。
 - 国土地理院により作成された部分については、政府オープンデータ戦略に基づく政府標準利用規約（第2.0版）に準拠した「国土地理院コンテンツ利用規約」により、2項BSDライセンスを適用しています。
 - 本レポジトリにプルリクエストを頂く場合、当該変更を当レポジトリに取り込んだ時点で、上記の国土地理院クレジットによる2項BSDライセンスの適用とさせていただくことを予めご承知おきください。
