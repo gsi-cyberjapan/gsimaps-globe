@@ -4,7 +4,7 @@
 - 地理院地図（本レポジトリを用いたデモ）：http://gsi-cyberjapan.github.io/gsimaps-globe/index_globe.html
 
 ## 利用上の留意点
-利用上の留意点は次の通りです。[LICENSE](LICENSE) 及び[LICENSE_LIBRARIES.md](LICENSE_LIBRARIES.md)もあわせてご参照ください。
+利用上の留意点は次の通りです。[LICENSE](LICENSE)もあわせてご参照ください。
 
 - 本レポジトリで提供しているのは、国土地理院が運営する「地理院地図Globe」http://maps.gsi.go.jp/globe/ のソースです。
 - Cesium, jQuery 等の既存ソフトウェアについては既存ソフトウェアのライセンスが適用されます。
