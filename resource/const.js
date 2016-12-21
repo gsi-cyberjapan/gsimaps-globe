@@ -243,6 +243,12 @@ var defaultLayerIDs = {
 		},
 	"地図・空中写真" :{
 		"写真":{
+			"seamlessphoto": {
+				"id": "seamlessphoto",
+				"name": "シームレス空中写真",
+				"ext": "jpg",
+				"zoom": "2-18"
+			},
 			"ort": {
 				"id": "ort",
 				"name": "最新（2007年～）",
@@ -330,12 +336,12 @@ var defaultLayerIDs = {
 			"ext": "png",
 			"zoom": "5-15"
 		},
-		"lcm25k_2012": {
-			"id": "lcm25k_2012",
-			"name": "数値地図25000（土地条件）",
-			"ext": "png",
-			"zoom": "10-16"
-		},
+//		"lcm25k_2012": {
+//			"id": "lcm25k_2012",
+//			"name": "数値地図25000（土地条件）",
+//			"ext": "png",
+//			"zoom": "10-16"
+//		},
 		"土地利用図":{
 			"lum4bl_capital2000": {
 				"id": "lum4bl_capital2000",
