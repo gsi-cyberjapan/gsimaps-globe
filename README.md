@@ -1,7 +1,7 @@
-# gsimaps-globe （地理院地図Globe（試験公開））
+# gsimaps-globe （地理院地図Globe）
 
 - 地理院地図（国土地理院が運営しているもの）：http://maps.gsi.go.jp/globe/index_globe.html
-- 地理院地図（本レポジトリを用いたデモ）：http://gsi-cyberjapan.github.io/gsimaps-globe/index_globe.html
+- 地理院地図（本レポジトリを用いたデモ）：http://gsi-cyberjapan.github.io/gsimaps-globe/globe/index_globe.html
 
 ## 利用上の留意点
 利用上の留意点は次の通りです。[LICENSE](LICENSE)もあわせてご参照ください。
