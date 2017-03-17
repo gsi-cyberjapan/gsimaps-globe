@@ -1756,6 +1756,7 @@ define('Core/Cartesian3',[
         Check.typeOf.object(result, 'result');
         
         var magnitude = Cartesian3.magnitude(cartesian);
+        if ( magnitude == 0 ) magnitude = 1;
 
         result.x = cartesian.x / magnitude;
         result.y = cartesian.y / magnitude;
