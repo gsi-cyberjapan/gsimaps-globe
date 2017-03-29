@@ -124,7 +124,7 @@ $(document).ready(function(){
 	        , resizable : ( GSI.Utils.Browser.isSmartMobile ? false : "all" )
 	      }
 	    );
-		GSI.GLOBALS.viewListDialog._resetTiles();
+		GSI.GLOBALS.viewListDialog._resetTiles( GSI.GLOBALS.queryParams.getBaseMap() );
 		// 表示可能レイヤーダイアログ
 		
 		GSI.GLOBALS.layerTreeDialog

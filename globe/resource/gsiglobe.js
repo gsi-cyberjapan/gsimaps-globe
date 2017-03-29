@@ -2228,6 +2228,32 @@ GSI.MUNI_ARRAY["47381"] = '47,沖縄県,47381,竹富町';
 GSI.MUNI_ARRAY["47382"] = '47,沖縄県,47382,与那国町';
 
 
+/************************************************************************
+ Proj4js
+ ************************************************************************/
+Proj4js.defs["EPSG:3097"] = "+proj=utm +zone=51 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs";		    //UTM Zone51
+Proj4js.defs["EPSG:3098"] = "+proj=utm +zone=52 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs";		    //UTM Zone52
+Proj4js.defs["EPSG:3099"] = "+proj=utm +zone=53 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs";		    //UTM Zone53
+Proj4js.defs["EPSG:3100"] = "+proj=utm +zone=54 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs";		    //UTM Zone54
+Proj4js.defs["EPSG:3101"] = "+proj=utm +zone=55 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs";		    //UTM Zone55
+Proj4js.defs["SR-ORG:1235"] = "+proj=utm +zone=56 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs";	    //UTM Zone56
+Proj4js.defs['EPSG:4301'] = "+proj=longlat +ellps=bessel +towgs84=-146.336,506.832,680.254,0,0,0,0 +no_defs";	//日本測地系（経緯度座標）
+
+
+
+GSI.GLOBALS.isBaseLayer = function( info ) {
+	var isBase = false;
+	for (var baseIndex=0; baseIndex<CONFIG.BASETILES.length; baseIndex++)
+	{
+		if ( CONFIG.BASETILES[baseIndex].id == info.id )
+		{
+			isBase = true;
+		}
+	}
+	return isBase;
+};
+
+
 
 
 
@@ -4384,7 +4410,7 @@ GLOBE.SEARCHFORM = {
 				
 				if ( latLng )
 				{
-					this.setView( latLng );
+					this.setView( [ latLng.lat, latLng.lng ] );
 				}
 				else
 				{
@@ -5653,8 +5679,18 @@ GLOBE.DIALOG.HEIGHTPOWER = $.extend({}, new GLOBE.CLASS.DIALOG('gsi_dialog_heigh
 	
 	sliderValueToMap: function( e, ui )
 	{
+		GSI.GLOBALS.layerTreeDialog._userControlStarted = false;
 		GLOBE.MAP.setHeightPower( ui.value );
 		GLOBE.DIALOG.FILEREAD.reloadAllKml();
+		
+		var list = GSI.GLOBALS.mapLayerList.getList();
+		for ( var i=0; i<list.length; i++ )
+		{
+			if ( list[i].layerType == "kml" && list[i]._visibleInfo && list[i]._visibleInfo.layer && list[i]._visibleInfo.layer._redraw )
+			{
+				list[i]._visibleInfo.layer._redraw();
+			}
+		}
 	}
 });
 
@@ -6946,7 +6982,6 @@ GLOBE.MAP = {
 		});
 		billboardCollection["type"] = type;
 		this.viewer.scene.primitives.add(billboardCollection);
-
 
 		// Create a blank, solid colored pin.
 		billboardCollection.add({
@@ -8940,7 +8975,6 @@ GSI.LayerTreeDialog = GSI.Dialog.extend( {
 	onCOCOTileLoad : function(e)
 	{
 		if ( !this.tree ) return;
-
 		this._initializeList( this.current ? this.current.entries : this.tree[this._activeTabIndex].entries );
 	},
 	onCOCOTileHide : function(e )
@@ -8967,9 +9001,9 @@ GSI.LayerTreeDialog = GSI.Dialog.extend( {
 			this._initializeList_CurrentPath( this.options.currentPath );
 			this.activateTab( this._activeTabIndex );
 		}
-        else{
-            this._initializeListProc();
-        }
+		else{
+			this._initializeListProc();
+		}
 		
 		if ( this.current && this.current.toggleall )
 		{
@@ -8983,7 +9017,6 @@ GSI.LayerTreeDialog = GSI.Dialog.extend( {
 	},
 	_initializeList : function( list, liRefresh )
 	{
-		
 		this._hideItemTooltip();
 
 		if ( !list || list.length <= 0  )
@@ -9538,9 +9571,10 @@ GSI.LayerTreeDialog = GSI.Dialog.extend( {
 			    }
 		    );
         }
-        if ( GSI.GLOBALS.layersJSON._baseLayerList[ item.id ] )
+        
+        if ( GSI.GLOBALS.isBaseLayer( item ) )
         {
-			if ( GSI.GLOBALS.layersJSON._baseLayerList[ item.id ]._visibleInfo )
+			if ( this.mapLayerList.exists( item ) )
 			{
 				a.addClass( 'view' );
 			}
@@ -9739,17 +9773,16 @@ GSI.LayerTreeDialog = GSI.Dialog.extend( {
 
 		this._current_id = item.id;
 		
-		if ( GSI.GLOBALS.layersJSON._baseLayerList[ item.id ] )
+		if ( GSI.GLOBALS.isBaseLayer( item ) )
 		{
 			if ( $(a).hasClass('view') )
 			{
 				$(a).removeClass('view');
-				item._visibleInfo.layer.alpha = 0;
 				this.mapLayerList.remove(item);
 			}
 			else
 			{
-				this.mapLayerList.setBaseLayer( GSI.GLOBALS.layersJSON._baseLayerList[ item.id ] );
+				this.mapLayerList.setBaseLayer( item );
 			}
 			return;
 		}
@@ -9923,10 +9956,22 @@ GSI.ViewListDialog = GSI.Dialog.extend( {
 	{
 		this._removeAll();
 	},
-	_resetTiles : function()
+	_resetTiles : function( id )
 	{
 		//タイルクリア
 		var std = CONFIG.BASETILES[0];
+		
+		if ( id )
+		{
+			for ( var i=0; i<CONFIG.BASETILES.length; i++ )
+			{
+				if ( CONFIG.BASETILES[i].id == id )
+				{
+					std = CONFIG.BASETILES[i];
+					break;
+				}
+			}
+		}
 		
 		this._removeAll();
 		this.mapLayerList.setBaseLayer( std );
@@ -10032,18 +10077,34 @@ GSI.ViewListDialog = GSI.Dialog.extend( {
 		var liList = this.tileListContainer.find( 'li' );
 		var list = [];
         var f = true;
+        
+        var baseLayerIndex = -1;
+        for  ( var i=0; i<liList.length; i++ )
+        {
+			var item = $(liList[i]).data( 'data' );
+			if ( item._isBaseLayer ) baseLayerIndex = i;
+		}
+        if ( baseLayerIndex != -1 && baseLayerIndex != liList.length - 1 )
+        {
+			this.tileListContainer.sortable("cancel");
+			return;
+		}
+        
 		for  ( var i=0; i<liList.length; i++ )
 		{
 			var item = $(liList[i]).data( 'data' );
             
     		if ( item ) list.push( item );
 		}
+		
+		var lastTileExtra = ( this.getBaseLayerExists() ? 2 : 1 );
+		
         if(f){
 			for ( var i=0; i<liList.length; i++ )
 			{
 				var li = $( liList[i] );
 				var isFirstTile = ( i==0 );
-				var isLastTile = ( i == list.length-1 );
+				var isLastTile = ( i >= list.length - lastTileExtra );
 				
 				if ( isFirstTile )
 					li.find(".updown_frame a.up").hide();
@@ -10059,6 +10120,20 @@ GSI.ViewListDialog = GSI.Dialog.extend( {
 			
 		    this.mapLayerList.refreshTileList(list);
         }
+	},
+	getBaseLayerCount : function()
+	{
+		var tileList = this.mapLayerList.getTileList();
+		var cnt = 0;
+		for  ( var i=0; i<tileList.length; i++ )
+		{
+			if ( tileList[i]._isBaseLayer ) cnt++;
+		}
+		return cnt;
+	},
+	getBaseLayerExists : function()
+	{
+		return ( this.getBaseLayerCount() > 0 );
 	},
 	onCOCOTileLoad : function(e)
 	{
@@ -10407,39 +10482,31 @@ GSI.ViewListDialog = GSI.Dialog.extend( {
 	},
 	_initializeListOne : function( list,liList, ul, liRefresh, isTile )
 	{
-		var baseLayerFlgs = [false, true];
+		var lastTileExtra = ( this.getBaseLayerExists() ? 2 : 1 );
 		
-		for ( var j=0; j<baseLayerFlgs.length; j++ )
+		for ( var i= 0; i<list.length; i++ )
 		{
-			for ( var i= 0; i<list.length; i++ )
+			var item = list[i];
+			var li = ( liRefresh ? $( liList[i] ) : $( '<li>' ) );
+
+			if ( liRefresh )
 			{
-				var item = list[i];
-				
-				var isBaseLayer = (item._isBaseLayer ? true : false);
-				if ( isBaseLayer == baseLayerFlgs[j] )
-				{
-					var li = ( liRefresh ? $( liList[i] ) : $( '<li>' ) );
-
-					if ( liRefresh )
-					{
-						this._updateLayer( li, item, isTile, 
-								i==0,
-								i == list.length-1  );
-					}
-					else
-					{
-					    var a = $( '<a>' ).attr( { 'href':'javascript:void(0);' } );
-					    a.data( { 'data' : item } );
-						this._makeLayer(li, a, item, isTile, 
-							i==0,
-							i == list.length-2  );
-
-					    li.append( a );
-					}
-
-					if ( !liRefresh ) ul.append( li );
-				}
+				this._updateLayer( li, item, isTile, 
+						i==0,
+						i >= list.length - lastTileExtra );
 			}
+			else
+			{
+			    var a = $( '<a>' ).attr( { 'href':'javascript:void(0);' } );
+			    a.data( { 'data' : item } );
+				this._makeLayer(li, a, item, isTile, 
+					i==0,
+					i >= list.length - lastTileExtra );
+
+			    li.append( a );
+			}
+
+			if ( !liRefresh ) ul.append( li );
 		}
 	},
 	onItemClick : function(li, a, viewMark)
@@ -11250,7 +11317,9 @@ GSI.LayersJSON = MA.Class.extend( {
 					
 				}
 				
-				if ( parent.title_sys == CONFIG.layerBaseFolderSYS )
+				var isBase = GSI.GLOBALS.isBaseLayer( info );
+				
+				if ( parent.title_sys == CONFIG.layerBaseFolderSYS || isBase )
 				{
 					this._baseLayerList[ info.id ] = info;
 					info._isBaseLayer = true;
@@ -11371,28 +11440,19 @@ GSI.MapLayerList = MA.Class.extend( {
 		var hit = false;
 		for( var i=this.tileList.length-1; i>= 0; i-- )
 		{
-			if ( this.tileList[i]._isBaseLayer )
+			if ( this.tileList[i]._isBaseLayer || GSI.GLOBALS.isBaseLayer(this.tileList[i]) )
 			{
+				this.map.viewer.imageryLayers.remove(this.tileList[i]._visibleInfo.layer, true);
 				this.tileList[i]._visibleInfo = null;
 				this.tileList[i] = info;
-				
 				
 				hit = true;
 				break;
 			}
 		}
 		
-		var layers = this.map.viewer.imageryLayers;
-		for( var i=0; i<layers.length; i++ )
-		{
-			var base = layers.get(i);
-			if ( base._isBaseLayer )
-			{
-				layers.remove( base, true );
-				break;
-			}
-		}
 		
+		info._isBaseLayer = true;
 		info._visibleInfo = {};
 		info._visibleInfo.opacity = ( info.initialOpacity ? info.initialOpacity : 1.0 );
 		info.initialOpacity = null;
@@ -11410,10 +11470,13 @@ GSI.MapLayerList = MA.Class.extend( {
 			0
 		);
 		info._visibleInfo.layer.alpha = info._visibleInfo.opacity;
+		info._visibleInfo.layer._remove = function(viewer) {
+			viewer.imageryLayers.remove(this, true);
+		};
 		
 		if ( !hit )
 		{
-			this.tileList.unshift( info );
+			this.tileList.push( info );
 		}
 		
 		this.fire('change');
@@ -12663,6 +12726,7 @@ GLOBE.VectorLayer = MA.Class.extend( {
 	//_billboards : [],
 	_beforeHeight : null,
 	_moveEndHandler : function(){},
+	_uniqueId : GLOBE.MAP.getNewId(),
 
 	initialize : function(map,options)
 	{
@@ -12822,6 +12886,37 @@ GLOBE.VectorLayer = MA.Class.extend( {
 		this._billboardCollection = null;
 		this._singleImageryLayerId = null;
 		this._map.viewer.camera.moveEnd.removeEventListener(this._moveEndHandler);
+	},
+	
+	_redraw : function() 
+	{
+		if ( this._dataSource )
+		{
+			this._map.viewer.dataSources.remove(this._dataSource, true);
+		}
+		
+		if ( this._primitives )
+		{
+			for( var i=0; i<this._primitives.length; i++ )
+			{
+				this._map.viewer.scene.primitives.remove(this._primitives[i]);
+			}
+		}
+		
+		if ( this._billboardCollection )
+		{
+			this._map.viewer.scene.primitives.remove(this._billboardCollection);
+		}
+		
+		if ( this._singleImageryLayerId )
+		{
+			GLOBE.MAP.removeSingleImageryLayer(this._singleImageryLayerId);
+		}
+		
+		this._primitives = [];
+		this._billboardCollection = null;
+		
+		this._onLoad();
 	},
 	
 	_load : function()
@@ -13035,11 +13130,20 @@ GLOBE.KMLLayer = GLOBE.VectorLayer.extend( {
 	
 	_onLoad : function(kml)
 	{
+		if ( kml )
+		{
+			this._originalData = kml;
+		}
+		else
+		{
+			kml = this._originalData;
+		}
+		
 		//try{
 			//var id = getRandomStr();
 			var latArray = [];
 			var lonArray = [];
-
+			
 			// いったんdataSource追加
 			this._dataSource = new Cesium.KmlDataSource({
 				camera: this._map.viewer.scene.camera,
@@ -13073,10 +13177,10 @@ GLOBE.KMLLayer = GLOBE.VectorLayer.extend( {
 	
 	_draw : function(dataSource)
 	{
-		var id = GLOBE.MAP.getNewId();
+		var id = this._uniqueId;
 		var latArray = [];
 		var lonArray = [];
-
+		
 		//try{
 			// 高さ情報がある場合はそのままentityとして描画----------------
 			if(this._depthFlag)
@@ -13328,6 +13432,15 @@ GLOBE.GeoJSONLayer = GLOBE.VectorLayer.extend( {
 	
 	_onLoad : function(geojson)
 	{
+		if ( geojson )
+		{
+			this._originalData = geojson;
+		}
+		else
+		{
+			geojson = this._originalData;
+		}
+		
 		//try{
 			var latArray = [];
 			var lonArray = [];
@@ -13347,7 +13460,12 @@ GLOBE.GeoJSONLayer = GLOBE.VectorLayer.extend( {
 		var latArray = [];
 		var lonArray = [];
 		
-		var id     = GLOBE.MAP.getNewId();
+		if ( !geojson )
+		{
+			geojson = this._geoJSON;
+		}
+		
+		var id     = this._uniqueId;
 		var len    = geojson.features.length;
 		var viewer = this._map.viewer;
 		var isIE = GSI.Utils.Browser.ie;
