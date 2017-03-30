@@ -10120,6 +10120,8 @@ GSI.ViewListDialog = GSI.Dialog.extend( {
 			
 		    this.mapLayerList.refreshTileList(list);
         }
+        
+        GLOBE.MAP.setLayersHash();
 	},
 	getBaseLayerCount : function()
 	{
