@@ -273,7 +273,7 @@
           "cocotile": true,
           "minZoom": 3,
           "maxZoom": 18,
-          "maxNativeZoom": 14,
+          "maxNativeZoom": 15,
           "legendUrl": "",
           "html": "<div class=\"gsi_layerinfo_title\">全国傾斜量区分図（雪崩関連）</div><div class=\"gsi_layerinfo_kaisetu\"><a href=\"http://maps.gsi.go.jp/legend/attention_slopezone1map.pdf\" class=\"gsi_layerinfo_kaisetu\" target=\"_blank\">解説</a></div><div class=\"gsi_layerinfo_copy\">(c)国土地理院</div>"
         },
@@ -2476,6 +2476,18 @@
                   "entries": [
                     {
                       "type": "Layer",
+                      "id": "jin201703",
+                      "title": "3月更新",
+                      "iconUrl": "https://maps.gsi.go.jp/portal/sys/v4/symbols/082.png",
+                      "url": "https://maps.gsi.go.jp/xyz/jin201703/{z}/{x}/{y}.geojson",
+                      "subdomains": "",
+                      "attribution": "",
+                      "cocotile": false,
+                      "legendUrl": "",
+                      "html": ""
+                    },
+                    {
+                      "type": "Layer",
                       "id": "jin201702",
                       "title": "2月更新",
                       "iconUrl": "https://maps.gsi.go.jp/portal/sys/v4/symbols/081.png",
@@ -2506,6 +2518,18 @@
                   "iconUrl": "",
                   "toggleall": false,
                   "entries": [
+                    {
+                      "type": "Layer",
+                      "id": "men201703",
+                      "title": "3月更新",
+                      "iconUrl": "",
+                      "url": "https://maps.gsi.go.jp/xyz/men201703/{z}/{x}/{y}.geojson",
+                      "subdomains": "",
+                      "attribution": "",
+                      "cocotile": false,
+                      "legendUrl": "",
+                      "html": ""
+                    },
                     {
                       "type": "Layer",
                       "id": "men201702",
@@ -3913,10 +3937,9 @@
                  {
                   "type": "Layer",
                   "id": "fgd_dem5a_area_dtil_5",
-                  "title": "┗5ｍメッシュDEM（航空レーザ測量）<br>　提供範囲と作業年度",
+                  "title": "提供範囲",
                   "iconUrl": "",
                    "url": "https://maps.gsi.go.jp/xyz/fgd_dem5a_area_dtil/{z}/{x}/{y}.geojson",
-                   "styleurl" : "https://maps.gsi.go.jp/xyz/fgd_dem5a_area_dtil/style_canvas.js",
                    "subdomains": "",
                    "attribution": "",
                    "cocotile": true,
@@ -3928,7 +3951,7 @@
                  {
                   "type": "Layer",
                   "id": "fgd_dem5a_area_dtil_12",
-                  "title": "┗5ｍメッシュDEM（航空レーザ測量）<br>　提供範囲と作業年度",
+                  "title": "提供範囲と作業年度",
                   "iconUrl": "",
                    "url": "https://maps.gsi.go.jp/xyz/fgd_dem5a_area_dtil/{z}/{x}/{y}.geojson",
                    "styleurl" : "https://maps.gsi.go.jp/xyz/fgd_dem5a_area_dtil/style_canvas.js",
