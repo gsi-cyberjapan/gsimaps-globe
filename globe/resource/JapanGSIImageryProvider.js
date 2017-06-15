@@ -136,7 +136,7 @@ SOFTWARE.
         //this._minimumLevel = defaultValue(options.minimumLevel, parsedLayers[1]);
         //this._maximumLevel = defaultValue(options.maximumLevel, parsedLayers[2]);
 		//this._minimumLevel = options.minZoom;
-		this._maximumLevel = options.maxZoom;
+		this._maximumLevel = (options.maxZoom ? options.maxZoom + 1 : options.maxZoom);
 		
         this._rectangle = defaultValue(options.rectangle, this._tilingScheme.rectangle);
 
@@ -303,7 +303,7 @@ SOFTWARE.
         if (!this._ready) {
             throw new DeveloperError('requestImage must not be called before the imagery provider is ready.');
         }
-		if ( this.options.minZoom > level )
+		if ( this.options.minZoom > level || (this.options.maxZoom && this.options.maxZoom < level) )
 		{
 			if ( !this._dummyCanvas )
 			{

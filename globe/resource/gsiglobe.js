@@ -7952,21 +7952,11 @@ GLOBE.MAP = {
 	 */
 	getPrimitiveIcon_Circle: function(position, fillColor, radius, isIE)
 	{
-		// IEの場合は高さを調整する
-		if(isIE){
-			var ellipse = new Cesium.EllipseGeometry({
-				"center" : position,
-				"semiMajorAxis" : radius,
-				"semiMinorAxis" : radius,
-				"height"        : IE_height
-			});
-		}else{
-			var ellipse = new Cesium.EllipseGeometry({
-				"center" : position,
-				"semiMajorAxis" : radius,
-				"semiMinorAxis" : radius
-			});
-		}
+		var ellipse = new Cesium.EllipseGeometry({
+			"center" : position,
+			"semiMajorAxis" : radius,
+			"semiMinorAxis" : radius
+		});
 
 		var geometryInstance = new Cesium.GeometryInstance({
 			"geometry"   : ellipse,
@@ -7984,19 +7974,9 @@ GLOBE.MAP = {
 	 */
 	getPrimitivePolygon: function(hierarchy, color, isIE)
 	{
-
-		// IEの場合は高さを調整する
-		if(isIE){
-			var polygon = new Cesium.PolygonGeometry({
-				"polygonHierarchy" : hierarchy,
-				"height"           : IE_height,
-				"perPositionHeight": true
-			});
-		}else{
-			var polygon = new Cesium.PolygonGeometry({
-				"polygonHierarchy" : hierarchy
-			});
-		}
+		var polygon = new Cesium.PolygonGeometry({
+			"polygonHierarchy" : hierarchy
+		});
 
 		var geometryInstance = new Cesium.GeometryInstance({
 			"geometry"   : polygon,
@@ -8014,21 +7994,11 @@ GLOBE.MAP = {
 	 */
 	getPrimitiveLinestring: function(positions, color, width, isIE)
 	{
-		// IEの場合は高さを調整する
-		if(isIE){
-			var corridor = new Cesium.CorridorGeometry({
-				"positions"    : positions,
-				"width"        : width,
-				"height"       : IE_height,
-				"vertexFormat" : Cesium.PerInstanceColorAppearance.VERTEX_FORMAT
-			});
-		}else{
-			var corridor = new Cesium.CorridorGeometry({
-				"positions"    : positions,
-				"width"        : width,
-				"vertexFormat" : Cesium.PerInstanceColorAppearance.VERTEX_FORMAT
-			});
-		}
+		var corridor = new Cesium.CorridorGeometry({
+			"positions"    : positions,
+			"width"        : width,
+			"vertexFormat" : Cesium.PerInstanceColorAppearance.VERTEX_FORMAT
+		});
 		
 		var geometryInstance = new Cesium.GeometryInstance({
 			geometry : corridor,
