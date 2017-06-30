@@ -44,7 +44,7 @@
                   "title": "SAR解析結果",
                   "iconUrl": "",
                   "toggleall": false,
-                  "src": "http://insarmap.gsi.go.jp/layers_txt/layers_alos2_eq_201411nagano.txt"
+                  "src": "https://insarmap.gsi.go.jp/layers_txt/layers_alos2_eq_201411nagano.txt"
                 },
                 {
                   "type": "Layer",
@@ -4156,7 +4156,7 @@
                   "title": "SAR解析結果",
                   "iconUrl": "",
                   "toggleall": false,
-                  "src": "http://insarmap.gsi.go.jp/layers_txt/layers_alos2_vol_tokachidake.txt"
+                  "src": "https://insarmap.gsi.go.jp/layers_txt/layers_alos2_vol_tokachidake.txt"
                 }
               ]
             },
@@ -4171,7 +4171,7 @@
                   "title": "SAR解析結果",
                   "iconUrl": "",
                   "toggleall": false,
-                  "src": "http://insarmap.gsi.go.jp/layers_txt/layers_alos2_vol_azumayama.txt"
+                  "src": "https://insarmap.gsi.go.jp/layers_txt/layers_alos2_vol_azumayama.txt"
                 }
               ]
             },
@@ -4186,7 +4186,7 @@
                   "title": "SAR解析結果",
                   "iconUrl": "",
                   "toggleall": false,
-                  "src": "http://insarmap.gsi.go.jp/layers_txt/layers_alos2_vol_asamayama.txt"
+                  "src": "https://insarmap.gsi.go.jp/layers_txt/layers_alos2_vol_asamayama.txt"
                 }
               ]
             },
@@ -4201,7 +4201,7 @@
                   "title": "SAR解析結果",
                   "iconUrl": "",
                   "toggleall": false,
-                  "src": "http://insarmap.gsi.go.jp/layers_txt/layers_alos2_vol_hakoneyama.txt"
+                  "src": "https://insarmap.gsi.go.jp/layers_txt/layers_alos2_vol_hakoneyama.txt"
                 },
                 {
                   "type": "Layer",
@@ -4244,7 +4244,7 @@
                   "title": "SAR解析結果",
                   "iconUrl": "",
                   "toggleall": false,
-                  "src": "http://insarmap.gsi.go.jp/layers_txt/layers_alos2_vol_ontakesan.txt"
+                  "src": "https://insarmap.gsi.go.jp/layers_txt/layers_alos2_vol_ontakesan.txt"
                 },
                 {
                   "type": "LayerGroup",
@@ -4443,7 +4443,7 @@
                   "title": "SAR解析結果",
                   "iconUrl": "",
                   "toggleall": false,
-                  "src": "http://insarmap.gsi.go.jp/layers_txt/layers_alos2_vol_asosan.txt"
+                  "src": "https://insarmap.gsi.go.jp/layers_txt/layers_alos2_vol_asosan.txt"
                 },
                 {
                   "type": "Layer",
@@ -4470,7 +4470,7 @@
                   "title": "SAR解析結果",
                   "iconUrl": "",
                   "toggleall": false,
-                  "src": "http://insarmap.gsi.go.jp/layers_txt/layers_alos2_vol_kirishimayama.txt"
+                  "src": "https://insarmap.gsi.go.jp/layers_txt/layers_alos2_vol_kirishimayama.txt"
                 }
               ]
             },
@@ -4485,7 +4485,7 @@
                   "title": "SAR解析結果",
                   "iconUrl": "",
                   "toggleall": false,
-                  "src": "http://insarmap.gsi.go.jp/layers_txt/layers_alos2_vol_sakurajima.txt"
+                  "src": "https://insarmap.gsi.go.jp/layers_txt/layers_alos2_vol_sakurajima.txt"
                 },
                 {
                   "type": "Layer",
@@ -4580,7 +4580,7 @@
                   "title": "SAR解析結果",
                   "iconUrl": "",
                   "toggleall": false,
-                  "src": "http://insarmap.gsi.go.jp/layers_txt/layers_alos2_vol_kuchinoerajima.txt"
+                  "src": "https://insarmap.gsi.go.jp/layers_txt/layers_alos2_vol_kuchinoerajima.txt"
                 },
                 {
                   "type": "LayerGroup",
@@ -4927,6 +4927,20 @@
                   "entries": [
                     {
                       "type": "Layer",
+                      "id": "20161220dol",
+                      "title": "2016/12/20",
+                      "iconUrl": "",
+                      "url": "https://maps.gsi.go.jp/xyz/20161220dol/{z}/{x}/{y}.png",
+                      "subdomains": "",
+                      "attribution": "",
+                      "cocotile": false,
+                      "minZoom": 10,
+                      "maxZoom": 18,
+                      "legendUrl": "",
+                      "html": "<div class=\"gsi_layerinfo_title\">正射画像-2016.12.20</div><div class=\"gsi_layerinfo_copy\">(c)国土地理院</div>"
+                    },
+                    {
+                      "type": "Layer",
                       "id": "20160725dol",
                       "title": "2016/7/25（無人航空機（UAV）撮影）",
                       "iconUrl": "",
@@ -5224,22 +5238,22 @@
                   "entries": [
                     {
                       "type": "Layer",
-                      "id": "3D1311nishinoshima6",
-                      "title": "2015/3/1",
+                      "id": "3d1311nishinoshima2",
+                      "title": "2015/3/1～",
                       "iconUrl": "https://maps.gsi.go.jp/portal/sys/v4/symbols/080.png",
-                      "url": "https://maps.gsi.go.jp/overlay/1311nishinoshima/3D1311nishinoshima8.kml",
+                      "url": "https://maps.gsi.go.jp/xyz/3d1311nishinoshima2/{z}/{x}/{y}.geojson",
                       "subdomains": "",
                       "attribution": "",
                       "cocotile": false,
                       "legendUrl": "",
-                      "html": "<div class=\"gsi_layerinfo_title\">立体図 - 2015.3.1</div><div class=\"gsi_layerinfo_kaisetu\"></div><div style=\"font-size:13px; margin: 8px\" id=\"plugin_library_legend2\">(c)国土地理院</div>"
+                      "html": "<div class=\"gsi_layerinfo_title\">立体図 - 2015.3.1～</div><div class=\"gsi_layerinfo_copy\">(c)国土地理院</div>"
                     },
                     {
                       "type": "Layer",
-                      "id": "3D1311nishinoshima",
+                      "id": "3d1311nishinoshima1",
                       "title": "2013/12～2014/12",
                       "iconUrl": "https://maps.gsi.go.jp/portal/sys/v4/symbols/082.png",
-                      "url": "https://maps.gsi.go.jp/overlay/1311nishinoshima/3D1311nishinoshima7.kml",
+                      "url": "https://maps.gsi.go.jp/xyz/3d1311nishinoshima1/{z}/{x}/{y}.geojson",
                       "subdomains": "",
                       "attribution": "",
                       "cocotile": false,
@@ -5891,14 +5905,14 @@
                 },
                 {
                   "type": "LayerGroup",
-                  "title": "海岸線（暫定）",
+                  "title": "海岸線",
                   "iconUrl": "",
                   "toggleall": false,
                   "entries": [
                     {
                       "type": "Layer",
                       "id": "160303_nishinoshima_coastline",
-                      "title": "2016/3/3",
+                      "title": "2016/3/3（暫定）",
                       "iconUrl": "",
                       "url": "https://maps.gsi.go.jp/xyz/160303_nishinoshima_coastline/{z}/{x}/{y}.geojson",
                       "subdomains": "",
@@ -5913,7 +5927,7 @@
                     {
                       "type": "Layer",
                       "id": "151209_nishinoshima_coastline",
-                      "title": "2015/12/9",
+                      "title": "2015/12/9（暫定）",
                       "iconUrl": "",
                       "url": "https://maps.gsi.go.jp/xyz/151209_nishinoshima_coastline/{z}/{x}/{y}.geojson",
                       "subdomains": "",
@@ -5928,7 +5942,7 @@
                     {
                       "type": "Layer",
                       "id": "coastline1311nishinoshima_150728",
-                      "title": "2015/7/28",
+                      "title": "2015/7/28（暫定）",
                       "iconUrl": "",
                       "url": "https://maps.gsi.go.jp/overlay/1311nishinoshima/coastline1311nishinoshima_150728.kml",
                       "subdomains": "",
@@ -5940,7 +5954,7 @@
                     {
                       "type": "Layer",
                       "id": "coastline1311nishinoshima_150301",
-                      "title": "2015/3/1",
+                      "title": "2015/3/1（暫定）",
                       "iconUrl": "",
                       "url": "https://maps.gsi.go.jp/overlay/1311nishinoshima/coastline1311nishinoshima_150301.kml",
                       "subdomains": "",
@@ -5952,7 +5966,7 @@
                     {
                       "type": "Layer",
                       "id": "coastline1311nishinoshima_140216",
-                      "title": "2014/12/4",
+                      "title": "2014/12/4（暫定）",
                       "iconUrl": "",
                       "url": "https://maps.gsi.go.jp/overlay/1311nishinoshima/coastline1311nishinoshima_141204.kml",
                       "subdomains": "",
@@ -5964,7 +5978,7 @@
                     {
                       "type": "Layer",
                       "id": "coastline1311nishinoshima_141204",
-                      "title": "2014/2/16",
+                      "title": "2014/2/16（暫定）",
                       "iconUrl": "",
                       "url": "https://maps.gsi.go.jp/overlay/1311nishinoshima/coastline1311nishinoshima_140216.kml",
                       "subdomains": "",
@@ -5976,7 +5990,7 @@
                     {
                       "type": "Layer",
                       "id": "coastline1311nishinoshima_1217",
-                      "title": "2013/12/17",
+                      "title": "2013/12/17（暫定）",
                       "iconUrl": "",
                       "url": "https://maps.gsi.go.jp/overlay/1311nishinoshima/coastline1311nishinoshima_1217.kml",
                       "subdomains": "",
@@ -5988,7 +6002,7 @@
                     {
                       "type": "Layer",
                       "id": "coastline1311nishinoshima_1204",
-                      "title": "2013/12/4",
+                      "title": "2013/12/4（暫定）",
                       "iconUrl": "",
                       "url": "https://maps.gsi.go.jp/overlay/1311nishinoshima/coastline1311nishinoshima_1204.kml",
                       "subdomains": "",
@@ -6000,14 +6014,14 @@
                     {
                       "type": "Layer",
                       "id": "coastline1311nishinoshima_1121",
-                      "title": "2013/11/21",
+                      "title": "2013/11/21（暫定）",
                       "iconUrl": "",
                       "url": "https://maps.gsi.go.jp/overlay/1311nishinoshima/coastline1311nishinoshima_1121.kml",
                       "subdomains": "",
                       "attribution": "",
                       "cocotile": false,
                       "legendUrl": "",
-                      "html": "<div class=\"gsi_layerinfo_title\">海岸線（暫定）</div><div class=\"gsi_layerinfo_subtitle\">(2013.11.21)</div><div class=\"gsi_layerinfo_kaisetu\">海上保安庁撮影の空中写真と、東大地震研究所金子隆之助教撮影の空中写真を使用。</div>"
+                      "html": "<div class=\"gsi_layerinfo_title\">海岸線（暫定） - 2013.11.21</div><div class=\"gsi_layerinfo_kaisetu\">海上保安庁撮影の空中写真と、東大地震研究所金子隆之助教撮影の空中写真を使用。</div><div class=\"gsi_layerinfo_copy\">(c)国土地理院</div>"
                     }
                   ]
                 },
@@ -6113,7 +6127,7 @@
                       "html": "<div class=\"gsi_layerinfo_title\">簡易動画 - 2015.3.1(無人航空機(UAV))</div><div class=\"gsi_layerinfo_copy\">赤色のアイコン:一部、噴煙で見にくいところがあります。<br>(c)国土地理院</div>"
                     }
                   ]
-				},
+                },
                 {
                   "type": "Layer",
                   "id": "170604_nishinoshima_photo",
@@ -6128,7 +6142,6 @@
                   "maxZoom": 18,
                   "legendUrl": "",
                   "html": "<div class=\"gsi_layerinfo_title\">西之島火山活動－船上写真（2017/6/4）</div><div class=\"gsi_layerinfo_copy\">(c)国土地理院</div>"
-
                 },
                 {
                   "type": "LayerGroup",
