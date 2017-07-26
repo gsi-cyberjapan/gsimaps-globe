@@ -1979,7 +1979,14 @@
           "entries": [
             {
              "type": "LayerGroup",
-             "title": "平成29年梅雨前線及び台風3号",
+             "title": "平成29年7月22日からの梅雨前線に伴う大雨",
+             "iconUrl": "",
+             "toggleall": false,
+             "src": "./layers_20170722akita.txt"
+            },
+            {
+             "type": "LayerGroup",
+             "title": "平成29年7月九州北部豪雨",
              "iconUrl": "",
              "toggleall": false,
              "src": "./layers_20170705typhoon3.txt"
