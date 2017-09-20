@@ -9386,7 +9386,7 @@ GSI.LayerTreeDialog = GSI.Dialog.extend( {
 		}
 		if (item.html)
 		{
-			var flddescriptionBtn = $( '<a>' ).attr( { 'href':'javascript:void(0);'} ).addClass( 'flddescription_btn' ).html("ｉ");
+			var flddescriptionBtn = $( '<a>' ).attr( { 'href':'javascript:void(0);'} ).addClass( 'flddescription_btn' ).html("解説");
 			li.append( flddescriptionBtn );
 			flddescriptionBtn.unbind( 'click' ).bind( 'click', MA.bind( this._onLayerMouseEnter, this, a, item ) );
 		}
@@ -9581,7 +9581,7 @@ GSI.LayerTreeDialog = GSI.Dialog.extend( {
 		a.addClass( 'item' ).append( title);
 
         // 詳細
-		var descriptionBtn = $( '<a>' ).attr( { 'href':'javascript:void(0);'} ).addClass( 'description_btn' ).html("ｉ");
+		var descriptionBtn = $( '<a>' ).attr( { 'href':'javascript:void(0);'} ).addClass( 'description_btn' ).html("解説");
 		li.append( descriptionBtn );
 		descriptionBtn.unbind( 'click' ).bind( 'click', MA.bind( this._onLayerMouseEnter, this, a, item ) );
 
@@ -10251,7 +10251,7 @@ GSI.ViewListDialog = GSI.Dialog.extend( {
 		li.append( opacityBtn );
 		
         // 詳細
-		var descriptionBtn = $( '<span>' ).addClass( 'description_btn').html("ｉ");
+		var descriptionBtn = $( '<span>' ).addClass( 'description_btn').html("解説");
 		li.append( descriptionBtn );
 		descriptionBtn.unbind( 'click' ).bind( 'click', MA.bind( this._onLayerMouseEnter, this, a, item ) );
 

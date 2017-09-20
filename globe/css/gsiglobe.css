@@ -1099,20 +1099,19 @@ input[type=search]{
 	
     padding: 1px 1px 1px 1px;
 	right : 6px;
-	bottom : 10px;
-	font-size: 10pt;
+	bottom : 8px;
 	z-index:10;
 
     text-align: center;
-    font-size: 10px;
-    line-height:16px;
+    font-size: 12px;
+    line-height: 20px;
     cursor:pointer;
     border-radius: 50%;
 
     border:1px solid #fff;
     background-color:#1D417A;
-    height: 16px;
-    width : 16px;
+    height: 20px;
+    width : 32px;
 
     color: #fff;
 }
@@ -1682,7 +1681,7 @@ input[type=search]{
 {
 	color:#000;
 	position: absolute;
-	right:105px;
+	right:109px;
 	top:18px;
 	font-size:10px;
 	display:inline-block;
@@ -1703,7 +1702,7 @@ input[type=search]{
 {
 	color:#000;
 	position: absolute;
-	right:98px;
+	right: 98px;
 	top:3px;
 	font-size:10px;
 	display:inline-block;
@@ -1835,7 +1834,7 @@ input[type=search]{
 	*display: inline;
 	*zoom: 1;
 	padding: 0 2px 0 2px;
-	right : 58px;
+	right : 68px;
 	top:18px;
 	font-size:10px;
 	z-index:10;
@@ -1916,21 +1915,20 @@ input[type=search]{
 	*display: inline;
 	*zoom: 1;
 	
-	right : 36px;
-	top:20px;
-	font-size:10px;
-	z-index:10;
+	right : 31px;
+	top: 17px;
+	z-index: 10;
 
     text-align: center;
-    font-size: 10px;
-    line-height:16px;
+    font-size: 12px;
+    line-height: 22px;
     cursor:pointer;
     border-radius: 50%;
 
     border:1px solid #fff;
     background-color:#1D417A;
-    height: 16px;
-    width : 16px;
+    height: 22px;
+    width : 32px;
 
     color: #fff;
 
@@ -1970,7 +1968,7 @@ input[type=search]{
 	*display: inline;
 	*zoom: 1;
 	
-	right :21px;
+	right : 17px;
 	top:24px;
 	z-index:10;
 
