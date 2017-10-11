@@ -3979,7 +3979,7 @@ GLOBE.MENU.FUNC = {
 		switch ( url )
 		{
 			case 'gsi2d':
-				u  = '//maps.gsi.go.jp/'
+				u  = 'https://maps.gsi.go.jp/'
 					+ '#' + currents.zoomlevel
 					+ '/' + centerLatLng[0]
 					+ '/' + centerLatLng[1]
@@ -4000,7 +4000,7 @@ GLOBE.MENU.FUNC = {
 					}
 				}
 				
-				u  = '//maps.gsi.go.jp/index_3d.html'
+				u  = 'https://maps.gsi.go.jp/index_3d.html'
 					+ '?z=' + currents.zoomlevel
 					+ '&lat=' + centerLatLng[0]
 					+ '&lon=' + centerLatLng[1]
@@ -4769,7 +4769,7 @@ GLOBE.SEARCHFORM = {
         var vY_px     = y * Math.pow(2, z);
         var vX_Tile   = Math.floor(vX_px / 256);
         var vY_Tile	  = Math.floor(vY_px / 256);
-		var demUrl = "http://maps.gsi.go.jp/xyz/dem_png/" + z + "/" + vX_Tile + "/" + vY_Tile + ".png";
+		var demUrl = "https://maps.gsi.go.jp/xyz/dem_png/" + z + "/" + vX_Tile + "/" + vY_Tile + ".png";
 	    
 		if ( latlng )
 		{
@@ -6432,7 +6432,7 @@ GLOBE.MAP = {
 		// viewerのインスタンス作成-------------
 		var viewer = new Cesium.Viewer(this.mapElementId, {
 			imageryProvider : Cesium.createOpenStreetMapImageryProvider({
-				url : "http://maps.gsi.go.jp/xyz/" + this.initials.basemap + "/",
+				url : "https://maps.gsi.go.jp/xyz/" + this.initials.basemap + "/",
 				credit : ""
 			}),
 			// デフォルト画面部品を非表示
@@ -11444,7 +11444,7 @@ GSI.MapLayerList = MA.Class.extend( {
 		info.initialOpacity = null;
 		
 		var baseMapImageryProvider = Cesium.createOpenStreetMapImageryProvider({
-				url : "http://maps.gsi.go.jp/xyz/" + info.id.replace("_","") + "/",
+				url : "https://maps.gsi.go.jp/xyz/" + info.id.replace("_","") + "/",
 				credit : "",
 				fileExtension : info.url.substr(info.url.length-3,3),
 				maximumTerrainLevel : 18,
@@ -12642,7 +12642,7 @@ GLOBE.DIALOG.FOOTER = $.extend({}, new GLOBE.CLASS.DIALOG('gsi_dialog_footer'), 
 			.appendTo(this.frame);
 		this.UTM = $('<div><span style="color:#ccc;">UTMポイント：</span>'+utmPoint+'</div>')
 			.appendTo(this.frame);
-		this.a = $('<a href="http://maps.gsi.go.jp/help/howtouse.html" target="_blank"> 表示値の説明</a>')
+		this.a = $('<a href="https://maps.gsi.go.jp/help/howtouse.html" target="_blank"> 表示値の説明</a>')
 		    .css({
 				'color': '#333',
 				'background': 'linear-gradient(#f5f5f5, #f0f0f0)',
