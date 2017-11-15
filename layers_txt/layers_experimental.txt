@@ -98,6 +98,15 @@
         },
         {
           "type": "Layer",
+          "id": "experimental_jhj_index",
+          "title": "┗住居表示住所の提供範囲",
+          "url": "https://maps.gsi.go.jp/xyz/experimental_jhj_area/{z}/{x}/{y}.png",
+          "cocotile": true,
+          "minZoom": 5,
+          "html": "ズーム5～18で表示します。<br>ピンク色で塗りつぶされた部分以外には住居表示住所データはございません。<br>なお、この住居表示住所データの範囲は目安であり厳密なデータ範囲とは一致しませんのでご留意ください。"
+        },
+        {
+          "type": "Layer",
           "id": "experimental_fgd",
           "title": "基盤地図情報_基本項目",
           "url": "https://maps.gsi.go.jp/xyz/experimental_fgd/{z}/{x}/{y}.geojson",
@@ -128,7 +137,7 @@
           "minZoom": 4,
           "maxZoom": 16,
           "maxNativeZoom": 16,
-          "html": "数値地図25000（土地条件）、脆弱地形調査及び治水地形分類図のデータより作成しています。ズームレベル14～16で表示されます。なお、表示される内容は、調査時点のものであり、最新の状況と異なる場合があることをご了承ください。<br><a target='_blank' href='https://github.com/gsi-cyberjapan/experimental_landformclassification'>ベクトルタイル提供実験</a>"
+          "html": "数値地図25000（土地条件）、脆弱地形調査及び治水地形分類図のデータより作成しています。ズームレベル14～16で表示されます。なお、表示される内容は、調査時点のものであり、最新の状況と異なる場合があることをご了承ください。<br><a target='_blank' href='https://github.com/gsi-cyberjapan/experimental_landformclassification'>ベクトルタイル提供実験</a><br>凡例は地図上をクリックするとポップアップで表示されます。<br><a target='_blank' href='http://www.gsi.go.jp/bousaichiri/lfc_index.html'>解説</a>"
         },
         {
           "type": "Layer",
@@ -139,7 +148,7 @@
           "minZoom": 4,
           "maxZoom": 16,
           "maxNativeZoom": 16,
-          "html": "数値地図25000（土地条件）、脆弱地形調査及び治水地形分類図のデータより作成しています。ズームレベル14～16で表示されます。なお、表示される内容は、調査時点のものであり、最新の状況と異なる場合があることをご了承ください。<br><a target='_blank' href='https://github.com/gsi-cyberjapan/experimental_landformclassification'>ベクトルタイル提供実験</a>"
+          "html": "数値地図25000（土地条件）、脆弱地形調査及び治水地形分類図のデータより作成しています。ズームレベル14～16で表示されます。なお、表示される内容は、調査時点のものであり、最新の状況と異なる場合があることをご了承ください。<br><a target='_blank' href='https://github.com/gsi-cyberjapan/experimental_landformclassification'>ベクトルタイル提供実験</a><br>凡例は地図上をクリックするとポップアップで表示されます。<br><a target='_blank' href='http://www.gsi.go.jp/bousaichiri/lfc_index.html'>解説</a>"
         }
       ]
     }
