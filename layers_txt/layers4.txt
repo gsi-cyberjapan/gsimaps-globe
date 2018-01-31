@@ -3035,6 +3035,12 @@
           "toggleall": false,
           "entries": [
             {
+             "type": "LayerGroup",
+             "title": "草津白根山",
+             "toggleall": false,
+             "src": "./layers_20180124kusatsushirane.txt"
+            },
+            {
               "type": "LayerGroup",
               "title": "十勝岳",
               "toggleall": false,
