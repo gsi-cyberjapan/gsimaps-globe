@@ -1,4 +1,4 @@
-/************************************************************************
+﻿/************************************************************************
  設定
  ************************************************************************/
 var GSI = {
@@ -189,6 +189,10 @@ CONFIG.layerBaseDefaultID = "std";
 CONFIG.layerBaseFolder    = "ベースマップ";
 CONFIG.layerBaseFolderSYS = "GSI.MAP.BASE";
 CONFIG.layers = [
+        {
+		"top":true,
+		"url":'../layers_txt/layers_topic_kirishima.txt'
+	},
 	{
 		"top":true,
 		"url":'../layers_txt/layers_topic_kusatsushirane.txt'
