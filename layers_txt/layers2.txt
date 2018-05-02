@@ -2969,9 +2969,17 @@
                   "entries": [
                     {
                       "type": "Layer",
+                      "id": "jin201804",
+                      "title": "4月更新",
+                      "iconUrl": "https://maps.gsi.go.jp/portal/sys/v4/symbols/083.png",
+                      "url": "https://maps.gsi.go.jp/xyz/jin201804/{z}/{x}/{y}.geojson",
+                      "cocotile": false
+                    },
+                    {
+                      "type": "Layer",
                       "id": "jin201803",
                       "title": "3月更新",
-                      "iconUrl": "https://maps.gsi.go.jp/portal/sys/v4/symbols/080.png",
+                      "iconUrl": "https://maps.gsi.go.jp/portal/sys/v4/symbols/082.png",
                       "url": "https://maps.gsi.go.jp/xyz/jin201803/{z}/{x}/{y}.geojson",
                       "cocotile": false
                     },
@@ -2979,7 +2987,7 @@
                       "type": "Layer",
                       "id": "jin201802",
                       "title": "2月更新",
-                      "iconUrl": "https://maps.gsi.go.jp/portal/sys/v4/symbols/080.png",
+                      "iconUrl": "https://maps.gsi.go.jp/portal/sys/v4/symbols/081.png",
                       "url": "https://maps.gsi.go.jp/xyz/jin201802/{z}/{x}/{y}.geojson",
                       "cocotile": false
                     },
@@ -2998,6 +3006,13 @@
                   "title": "2018年面的更新情報",
                   "toggleall": false,
                   "entries": [
+                    {
+                      "type": "Layer",
+                      "id": "men201804",
+                      "title": "4月更新",
+                      "url": "https://maps.gsi.go.jp/xyz/men201804/{z}/{x}/{y}.geojson",
+                      "cocotile": false
+                    },
                     {
                       "type": "Layer",
                       "id": "men201803",
@@ -3981,6 +3996,15 @@
                   "title": "2018年更新情報",
                   "toggleall": false,
                   "entries": [
+                    {
+                      "type": "Layer",
+                      "id": "fgd_update_2018_04",
+                      "title": "4月更新",
+                      "url": "https://maps.gsi.go.jp/xyz/fgd_update_2018_04/{z}/{x}/{y}.png",
+                      "cocotile": true,
+                      "minZoom": 4,
+                      "maxZoom": 12
+                     },
                     {
                       "type": "Layer",
                       "id": "fgd_update_2018_01",
