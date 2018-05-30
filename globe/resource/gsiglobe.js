@@ -14146,7 +14146,7 @@ GSI.MapLayerList = MA.Class.extend( {
 						//this.map.addLayer(info._visibleInfo.layer,true);
 						info._visibleInfo.layer = new Cesium.QuadtreePrimitive({
 							tileProvider : new JapanGSIGeojsonProvider({
-								"url"      : "http://cyberjapandata.gsi.go.jp/xyz/experimental_anno/{z}/{x}/{y}.geojson",
+								"url"      : "https://cyberjapandata.gsi.go.jp/xyz/experimental_anno/{z}/{x}/{y}.geojson",
 								"viewer"   : this.map.viewer
 							})
 						});
