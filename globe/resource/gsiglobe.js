@@ -191,15 +191,11 @@ CONFIG.layerBaseFolderSYS = "GSI.MAP.BASE";
 CONFIG.layers = [
 	{
 		"top":true,
-		"url":'../layers_txt/layers_topic_osaka.txt'
-	},
-        {
-		"top":true,
-		"url":'../layers_txt/layers_topic_kirishima.txt'
+		"url":'../layers_txt/layers_topic_typhoon7.txt'
 	},
 	{
 		"top":true,
-		"url":'../layers_txt/layers_topic_kusatsushirane.txt'
+		"url":'../layers_txt/layers_topic_osaka.txt'
 	},
 	{
 		"top":true,
