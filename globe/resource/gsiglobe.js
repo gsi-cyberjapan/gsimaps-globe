@@ -191,6 +191,10 @@ CONFIG.layerBaseFolderSYS = "GSI.MAP.BASE";
 CONFIG.layers = [
 	{
 		"top":true,
+		"url":'../layers_txt/layers_topic_hokkaido.txt'
+	},
+	{
+		"top":true,
 		"url":'../layers_txt/layers_topic_typhoon7.txt'
 	},
 	{
