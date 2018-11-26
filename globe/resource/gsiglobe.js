@@ -7722,6 +7722,8 @@ GLOBE.MAP = {
 		var dlg = (GSI.GLOBALS.queryParams._viewListDialogVisible ? 'v' : '')
 			    + (GSI.GLOBALS.queryParams._layerTreeDialogVisible ? 'l' : '');
 		
+		
+		
 		var hash = this.currents.height + '/' + this.currents.lat + '/' + this.currents.lon + '/' + this.currents.heightPower + '/'
 			+ this.currents.heading + '/' + this.currents.pitch + '/' + this.currents.roll + '/'
 			+ '&base=' + this.currents.basemap
@@ -7730,6 +7732,10 @@ GLOBE.MAP = {
 			+ '&disp=' + this.currents.layersShow
 			+ '&lcd=' + (GSI.GLOBALS.layerTreeDialog ? GSI.GLOBALS.layerTreeDialog.getCurrentPath() : '')
 			+ (dlg ? '&d=' + dlg : '');
+		
+		if ( this.currents.freeReliefData != undefined && this.currents.freeReliefData != "" ) {
+			hash += "&reliefdata=" + this.currents.freeReliefData;
+		}
 		
 		this._hashChangeValue = '#' + hash;
 		if ( this._hashChangeTimer )
@@ -7762,6 +7768,8 @@ GLOBE.MAP = {
 	// レイヤーの状態を変更した時に呼ぶ
 	setLayersHash: function()
 	{
+        
+		
 		var list = GSI.GLOBALS.mapLayerList.getList();
 		var tile = GSI.GLOBALS.mapLayerList.getTileList();
 		var layers = "";
@@ -7769,6 +7777,7 @@ GLOBE.MAP = {
 		var base = "";
 		var baseShow = "";
 		this.currents.basemap = "";
+		var hasFreeRelief = false;
 		for ( var i=tile.length-1; i>=0; i-- )
 		{
 			if ( tile[i]._isBaseLayer )
@@ -7783,8 +7792,15 @@ GLOBE.MAP = {
 				layers += '|' + tile[i].id;
 				layersShow += ( tile[i]._visibleInfo._isHidden ? '0' : '1' );
 			}
+			
+			if ( tile[i].id == CONFIG.FREERELIEFID ) {
+				hasFreeRelief = true;
+			}
+			
 			layers += (tile[i]._visibleInfo.opacity < 1 ? ',' + tile[i]._visibleInfo.opacity.toFixed(2)*1 : '');
 		}
+		
+		
 		for ( var i=list.length-1; i>=0; i-- )
 		{
 			layers += '|' + list[i].id;
@@ -7795,6 +7811,19 @@ GLOBE.MAP = {
 		layers = ( layers ? layers.replace(/^\|/, '') : '' );
 		this.currents.layers = layers;
 		this.currents.layersShow = layersShow;
+		
+		
+		this.currents.freeReliefData = "";
+		if ( hasFreeRelief ) {
+			
+			var currentData = GSI.GLOBALS.mapLayerList.getElevationData();
+			var text = GSI3D.ReliefTileLayer.encodeElevationData(currentData);
+			if ( text != undefined ) {
+				this.currents.freeReliefData = text;
+			}
+		}
+		
+		
 		this.updateHash();
 	},
 	
@@ -13864,7 +13893,6 @@ GSI.MapLayerList = MA.Class.extend( {
 		{
 			var info = this.tileList[i];
 			
-				console.log( info );
 			if ( info.id == CONFIG.FREERELIEFID && info._visibleInfo && info._visibleInfo.layer)
 			{
 				//info._visibleInfo.layer.setElevationData( this._elevationData );
@@ -13896,6 +13924,9 @@ GSI.MapLayerList = MA.Class.extend( {
 		}
 		this._initZIndex( this.tileList );
 		this.fire('tilechange');
+		
+		
+		GLOBE.MAP.setLayersHash();
 	},
 	
 	
@@ -14733,6 +14764,7 @@ GSI.QueryParams = MA.Class.extend( {
 		try{ this._initViewSetting(); }catch(e){}
 		try{ this._initLayerList(); }catch(e){}
 		try{ this._initDialogSettings(); }catch(e){}
+		try{ this._initReliefData(); }catch(e){}
 	},
     getInit : function(){
         var args = this._parse(window.location.search);
@@ -14748,6 +14780,12 @@ GSI.QueryParams = MA.Class.extend( {
 	{
 		return ( this._position ? this._position  : defaultPosition );
 	},
+	
+	getReliefData : function()
+	{
+		return this._reliefData;
+	},
+	
 	getZoom : function( defaultZoom )
 	{
 		return ( this._zoom ? this._zoom  : defaultZoom );
@@ -15074,6 +15112,13 @@ GSI.QueryParams = MA.Class.extend( {
 				}
 			}
 		}
+	},
+	_initReliefData : function()
+	{
+		var reliefData = this.params["reliefdata"];
+		if ( reliefData )
+			this._reliefData = GSI3D.ReliefTileLayer.decodeElevationDataText(reliefData);
+			
 	},
 	_parse : function( queryString, separator )
 	{
@@ -20789,6 +20834,54 @@ GSI3D.ReliefTileLayer.colorStringToRGBA = function (c)
 };
 
 
+// データのURL用エンコード
+GSI3D.ReliefTileLayer.encodeElevationData = function(data)
+{
+	if ( !data ) return;
+	
+	var result = "";
+	
+	for( var i=0; i<data.colors.length; i++ )
+	{
+		var c = data.colors[i];
+		
+		var hText = "";
+		if ( c.h || c.h == 0)
+			hText = c.h.toString(16);
+		var colorText = ""
+		
+		if ( c && c.color)
+		{
+			if ( jQuery.type(c.color) == "string" )
+			{
+				if ( c.color.charAt(0) == "#" )
+					colorText=c.color.slice( 1 ) ;
+				else
+					colorText=c.color;
+			}
+			else
+			{
+				
+				colorText = 
+					("00" + c.color.r.toString(16).toUpperCase()).substr(-2)
+					+("00" + c.color.g.toString(16).toUpperCase()).substr(-2)
+					+("00" + c.color.b.toString(16).toUpperCase()).substr(-2);
+			}
+		}
+		
+		result += ( result == "" ? "" : "G" ) +hText + "G" + colorText;
+		
+		
+	}
+	
+	//parseInt(suji2,2);
+	
+	
+	var flags = ( data.gradate ? "1" : 0) + ( data.useHillshademap ? "1" : 0);
+	result = parseInt(flags,2) + result;
+	return result.toUpperCase();
+};
+
 GSI3D.ReliefTileLayer.decodeElevationDataText = function(txt)
 {
 	var result = {};
@@ -20852,6 +20945,16 @@ GSI3D.ReliefTileLayer.getCanvas = function()
 	return GSI3D.ReliefTileLayer._canvas;
 };
 
+
+
+GSI3D.ReliefTileLayer.getEncodedElevationSampleData = function()
+{
+	return GSI3D.ReliefTileLayer._encodedSampleData;
+};
+	
+
+GSI3D.ReliefTileLayer._encodedSampleData = 
+	GSI3D.ReliefTileLayer.encodeElevationData(GSI3D.ReliefTileLayer._sampleData);
 
 
 

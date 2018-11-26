@@ -165,6 +165,12 @@ $(document).ready(function(){
 
 		    // Layers.txt を追加
 		    GSI.GLOBALS.layersJSON.add(CONFIG.layers);
+		    
+		    
+		    GSI.GLOBALS.queryParams.getControlSetting();
+		    
+		    if ( GSI.GLOBALS.queryParams.getReliefData() ) 
+				GSI.GLOBALS.mapLayerList.setElevationData(GSI.GLOBALS.queryParams.getReliefData());
 			
 		};
 		function confirmOKClick( dlg )
