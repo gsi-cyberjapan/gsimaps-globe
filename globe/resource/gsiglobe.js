@@ -12210,7 +12210,7 @@ GSI.LayerTreeDialog = GSI.Dialog.extend( {
 	},
 	_makeToolTip : function( item )
 	{
-		var infoFrame = $( '<div>' ).addClass( 'layerinfo' ).css({"max-width":"350px"} ).attr({"id":"layerinfodiv"});
+		var infoFrame = $( '<div>' ).addClass( 'layerinfo' ).css({"max-width":"350px"} ).attr({"id":"layerInfoDivLt"});
 
 		var legend = null;
 		var description = null;
@@ -12321,8 +12321,8 @@ GSI.LayerTreeDialog = GSI.Dialog.extend( {
 				var tp = this.offsetTop;
 				var newlf = lf;
 				var newtp = tp;
-				var descel = $("#layerinfodiv > .description")[0];
-				var th = $("#layerinfodiv > #toolTipTitle")[0];
+				var descel = $("#layerInfoDivLt > .description")[0];
+				var th = $("#layerInfoDivLt > #toolTipTitle")[0];
 				var em = 5;
 
 				if (ss.w < (lf + ww)){
@@ -13565,7 +13565,7 @@ GSI.ViewListDialog = GSI.Dialog.extend( {
 	},
 	_makeToolTip : function( item )
 	{
-		var infoFrame = $( '<div>' ).addClass( 'layerinfo' ).css({"max-width":"350px"} ).attr({"id":"layerinfodiv"});
+		var infoFrame = $( '<div>' ).addClass( 'layerinfo' ).css({"max-width":"350px"} ).attr({"id":"layerInfoDivVl"});
 
 		var legend = null;
 		var description = null;
@@ -13677,8 +13677,8 @@ GSI.ViewListDialog = GSI.Dialog.extend( {
 				var tp = this.offsetTop;
 				var newlf = lf;
 				var newtp = tp;
-				var descel = $("#layerinfodiv > .description")[0];
-				var th = $("#layerinfodiv > #toolTipTitle")[0];
+				var descel = $("#layerInfoDivVl > .description")[0];
+				var th = $("#layerInfoDivVl > #toolTipTitle")[0];
 				var em = 5;
 
 				if (ss.w < (lf + ww)){
