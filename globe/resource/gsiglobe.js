@@ -12210,11 +12210,14 @@ GSI.LayerTreeDialog = GSI.Dialog.extend( {
 	},
 	_makeToolTip : function( item )
 	{
-		var infoFrame = $( '<div>' ).addClass( 'layerinfo' ).css({"max-width":"350px"} );
+		var infoFrame = $( '<div>' ).addClass( 'layerinfo' ).css({"max-width":"350px"} ).attr({"id":"layerinfodiv"});
 
 		var legend = null;
 		var description = null;
 
+		if (item.title){
+			infoFrame.append( $( '<div>' ).css( {"font-weight":"bold"} ).html( item.title ).attr({"id":"toolTipTitle"}) );
+		}
 		if ( item.legendUrl && item.legendUrl != '')
 		{
 			legend =$( '<a>' ).html( '凡例を表示' ).addClass( 'legend' ).attr( { 'href' : item.legendUrl, 'target' : '_blank' } );
@@ -12309,7 +12312,38 @@ GSI.LayerTreeDialog = GSI.Dialog.extend( {
 				left : left + 'px',
 				top  : top + 'px'
 			}).empty().append( this._makeToolTip( item ) );
-			this._itemTooltip.stop().hide().fadeIn( 'normal' );
+
+			this._itemTooltip.stop().hide().fadeIn( 'normal' , function(){
+				var ss = GSI.Utils.getScreenSize();
+				var hh = this.clientHeight;
+				var ww = this.clientWidth;
+				var lf = this.offsetLeft;
+				var tp = this.offsetTop;
+				var newlf = lf;
+				var newtp = tp;
+				var descel = $("#layerinfodiv > .description")[0];
+				var th = $("#layerinfodiv > #toolTipTitle")[0];
+				var em = 5;
+
+				if (ss.w < (lf + ww)){
+					newlf = lf + (ss.w - (lf + ww)) - em;
+					if (newlf < 0){
+						newlf = em;
+						$(descel).css({"overflow-x":"scroll"});
+					}
+				}
+				if (ss.h < (tp + hh)){
+					newtp = tp + (ss.h - (tp + hh)) - em;
+					if (newtp < 0){
+						newtp = em;
+						$(descel).css({"height":(ss.h - th.clientHeight - 25) + "px","overflow-y":"scroll"});
+					}
+				}
+				$(this).animate({
+					left:newlf + "px",
+					top:newtp + "px"
+				}, "normal");
+			});
 
 			if ( this._hideToolTipHandler )
 			{
@@ -13531,11 +13565,14 @@ GSI.ViewListDialog = GSI.Dialog.extend( {
 	},
 	_makeToolTip : function( item )
 	{
-		var infoFrame = $( '<div>' ).addClass( 'layerinfo' ).css({"max-width":"350px"} );
+		var infoFrame = $( '<div>' ).addClass( 'layerinfo' ).css({"max-width":"350px"} ).attr({"id":"layerinfodiv"});
 
 		var legend = null;
 		var description = null;
 
+		if (item.title){
+			infoFrame.append( $( '<div>' ).css( {"font-weight":"bold"} ).html( item.title ).attr({"id":"toolTipTitle"}) );
+		}
 		if ( item.legendUrl && item.legendUrl != '')
 		{
 			legend =$( '<a>' ).html( '凡例を表示' ).addClass( 'legend' ).attr( { 'href' : item.legendUrl, 'target' : '_blank' } );
@@ -13631,7 +13668,38 @@ GSI.ViewListDialog = GSI.Dialog.extend( {
 				left : left + 'px',
 				top  : top + 'px'
 			}).empty().append( this._makeToolTip( item ) );
-			this._itemTooltip.stop().hide().fadeIn( 'normal' );
+
+			this._itemTooltip.stop().hide().fadeIn( 'normal' , function(){
+				var ss = GSI.Utils.getScreenSize();
+				var hh = this.clientHeight;
+				var ww = this.clientWidth;
+				var lf = this.offsetLeft;
+				var tp = this.offsetTop;
+				var newlf = lf;
+				var newtp = tp;
+				var descel = $("#layerinfodiv > .description")[0];
+				var th = $("#layerinfodiv > #toolTipTitle")[0];
+				var em = 5;
+
+				if (ss.w < (lf + ww)){
+					newlf = lf + (ss.w - (lf + ww)) - em;
+					if (newlf < 0){
+						newlf = em;
+						$(descel).css({"overflow-x":"scroll"});
+					}
+				}
+				if (ss.h < (tp + hh)){
+					newtp = tp + (ss.h - (tp + hh)) - em;
+					if (newtp < 0){
+						newtp = em;
+						$(descel).css({"height":(ss.h - th.clientHeight - 25) + "px","overflow-y":"scroll"});
+					}
+				}
+				$(this).animate({
+					left:newlf + "px",
+					top:newtp + "px"
+				}, "normal");
+			});
 
 			if ( this._hideToolTipHandler )
 			{
