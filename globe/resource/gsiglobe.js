@@ -14082,11 +14082,11 @@ GSI.MapLayerList = MA.Class.extend( {
 				return;
 			}
 		}
-		if (( info.id=="red" ) || ( info.id=="oosimared" ) || ( info.id=="miyakejimared" ) || ( info.id=="20180906hokkaido_atsuma_sekishoku" ) || ( info.id=="tarumaered" ) || ( info.id=="20180130_kusatsushiranesan_sekishokurittai" ) || ( info.id=="20180309_sekisyokurittai_kirishima" )|| ( info.id=="kuchinoerabured" )|| ( info.id=="2018_sekisyokurittai_azumayama" ))
+		if (( info.id=="red" ) || ( info.id=="20190121_sekisyokurittai_kusatsushiranesan" )|| ( info.id=="20190121_olsorittai_kusatsushiranesan" ) || ( info.id=="oosimared" ) || ( info.id=="miyakejimared" ) || ( info.id=="20180906hokkaido_atsuma_sekishoku" ) || ( info.id=="tarumaered" ) || ( info.id=="20180130_kusatsushiranesan_sekishokurittai" ) || ( info.id=="20180309_sekisyokurittai_kirishima" )|| ( info.id=="kuchinoerabured" )|| ( info.id=="2018_sekisyokurittai_azumayama" ))
 		{
 			if(Confirm_FLAG == null){
 				var KARI=this;
-				jConfirm("赤色立体地図はアジア航測株式会社の特許（第3670274号等）を使用して作成したものです。赤色立体地図を利用される場合は、<a target='_blank' href='http://www.gsi.go.jp/kikakuchousei/kikakuchousei40182.html'>国土地理院コンテンツ利用規約</a>に記載のとおり、<a target='_blank' href='https://www.rrim.jp/researcher/'>アジア航測株式会社の許諾条件</a>を確認してご利用下さい。", 'ご利用上の注意', function(r) {
+				jConfirm("赤色立体地図及びオルソ立体地図はアジア航測株式会社の特許（第3670274号等）を使用して作成したものです。赤色立体地図及びオルソ立体地図を利用される場合は、<a target='_blank' href='http://www.gsi.go.jp/kikakuchousei/kikakuchousei40182.html'>国土地理院コンテンツ利用規約</a>に記載のとおり、<a target='_blank' href='https://www.rrim.jp/researcher/'>アジア航測株式会社の許諾条件</a>を確認してご利用下さい。", 'ご利用上の注意', function(r) {
 					if(r) {
 						KARI.append(info, noFinishMove, isHide ,1);
 					}
