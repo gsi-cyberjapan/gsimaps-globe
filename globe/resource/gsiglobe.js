@@ -309,7 +309,7 @@ CONFIG.DEM[0] = { type : "PNG", url : "./[@]/tile.gsi/{z}/{x}/{y}.png"          
 
 CONFIG.DEM = new Array(4);
 CONFIG.DEM[0] = { type : "TXT", url : "https://cyberjapandata.gsi.go.jp/xyz/dem5a/{z}/{x}/{y}.txt", z : 15, fixed : 1, src : "DEM5A" };
-CONFIG.DEM[1] = { type : "TXT", url : "https://cyberjapandata.gsi.go.jp/xyz/dem5b/{z}/{x}/{y}.txt", z : 15, fixed : 1, src : "DEM5B" };
+CONFIG.DEM[1] = { type : "TXT", url : "https://cyberjapandata.gsi.go.jp/xyz/dem5b/{z}/{x}/{y}.txt", z : 15, fixed : 1, src : "DEM5B又は5C" };
 CONFIG.DEM[2] = { type : "TXT", url : "https://cyberjapandata.gsi.go.jp/xyz/dem/{z}/{x}/{y}.txt"  , z : 14, fixed : 0, src : "DEM10B"};
 CONFIG.DEM[3] = { type : "TXT", url : "https://cyberjapandata.gsi.go.jp/xyz/demgm/{z}/{x}/{y}.txt"  , z : 8, fixed : 0, src : "DEMGM"};
 
@@ -319,7 +319,7 @@ var ua = window.navigator.userAgent.toLowerCase();
 if((ua.indexOf("msie") >= 0) && (vs.indexOf("msie 9") >= 0))
 {
 	CONFIG.DEM[0] = { type : "TXT", url : "https://cyberjapandata.gsi.go.jp/xyz/dem5a/{z}/{x}/{y}.txt", z : 15, fixed : 1, src : "DEM5A" };
-	CONFIG.DEM[1] = { type : "TXT", url : "https://cyberjapandata.gsi.go.jp/xyz/dem5b/{z}/{x}/{y}.txt", z : 15, fixed : 1, src : "DEM5B" };
+	CONFIG.DEM[1] = { type : "TXT", url : "https://cyberjapandata.gsi.go.jp/xyz/dem5b/{z}/{x}/{y}.txt", z : 15, fixed : 1, src : "DEM5B又は5C" };
 	CONFIG.DEM[2] = { type : "TXT", url : "https://cyberjapandata.gsi.go.jp/xyz/dem/{z}/{x}/{y}.txt"  , z : 14, fixed : 0, src : "DEM10B"};
 	CONFIG.DEM[3] = { type : "TXT", url : "https://cyberjapandata.gsi.go.jp/xyz/demgm/{z}/{x}/{y}.txt"  , z : 8, fixed : 0, src : "DEMGM"};
 	
