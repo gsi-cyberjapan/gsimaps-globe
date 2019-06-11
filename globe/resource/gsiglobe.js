@@ -14938,10 +14938,20 @@ GSI.MapLayerList = MA.Class.extend( {
 		info.initialOpacity = null;
 		info.initialGrayScale = null;
 		
+		//190529 ext ここから
+		var no_para_url = info.url.split("?")[0];
+		var info_url_ext = info.url.substr(no_para_url.length-3,3)
+		if(info.url.split("?")[1]){
+			var url_para = info.url.split("?")[1];
+			var info_url_ext = info_url_ext + "?" + url_para;
+		}		
+		//190529 ext ここまで
+
 		var baseMapImageryProvider = Cesium.createOpenStreetMapImageryProvider({
 				url : "https://maps.gsi.go.jp/xyz/" + info.id.replace("_","") + "/",
 				credit : "",
-				fileExtension : info.url.substr(info.url.length-3,3),
+//190529		fileExtension : info.url.substr(info.url.length-3,3),
+				fileExtension : info_url_ext,// 190529
 				maximumTerrainLevel : 18,
 				maximumLevel : 18
 			});
