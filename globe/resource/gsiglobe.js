@@ -315,7 +315,7 @@ CONFIG.DEM[0] = { type : "PNG", url : "./[@]/tile.gsi/{z}/{x}/{y}.png"          
 CONFIG.DEM = new Array(4);
 CONFIG.DEM[0] = { type : "TXT", url : "https://cyberjapandata.gsi.go.jp/xyz/dem5a/{z}/{x}/{y}.txt", z : 15, fixed : 1, src : "DEM5A" };
 CONFIG.DEM[1] = { type : "TXT", url : "https://cyberjapandata.gsi.go.jp/xyz/dem5b/{z}/{x}/{y}.txt", z : 15, fixed : 1, src : "DEM5B又は5C" };
-CONFIG.DEM[2] = { type : "TXT", url : "https://cyberjapandata.gsi.go.jp/xyz/dem/{z}/{x}/{y}.txt"  , z : 14, fixed : 0, src : "DEM10B"};
+CONFIG.DEM[2] = { type : "TXT", url : "https://cyberjapandata.gsi.go.jp/xyz/dem/{z}/{x}/{y}.txt"  , z : 14, fixed : 0, src : "DEM"};
 CONFIG.DEM[3] = { type : "TXT", url : "https://cyberjapandata.gsi.go.jp/xyz/demgm/{z}/{x}/{y}.txt"  , z : 8, fixed : 0, src : "DEMGM"};
 
 //for IE9
@@ -325,7 +325,7 @@ if((ua.indexOf("msie") >= 0) && (vs.indexOf("msie 9") >= 0))
 {
 	CONFIG.DEM[0] = { type : "TXT", url : "https://cyberjapandata.gsi.go.jp/xyz/dem5a/{z}/{x}/{y}.txt", z : 15, fixed : 1, src : "DEM5A" };
 	CONFIG.DEM[1] = { type : "TXT", url : "https://cyberjapandata.gsi.go.jp/xyz/dem5b/{z}/{x}/{y}.txt", z : 15, fixed : 1, src : "DEM5B又は5C" };
-	CONFIG.DEM[2] = { type : "TXT", url : "https://cyberjapandata.gsi.go.jp/xyz/dem/{z}/{x}/{y}.txt"  , z : 14, fixed : 0, src : "DEM10B"};
+	CONFIG.DEM[2] = { type : "TXT", url : "https://cyberjapandata.gsi.go.jp/xyz/dem/{z}/{x}/{y}.txt"  , z : 14, fixed : 0, src : "DEM"};
 	CONFIG.DEM[3] = { type : "TXT", url : "https://cyberjapandata.gsi.go.jp/xyz/demgm/{z}/{x}/{y}.txt"  , z : 8, fixed : 0, src : "DEMGM"};
 	
 	CONFIG.SERVERAPI.GETADDR = "http://mreversegeocoder.gsi.go.jp/reverse-geocoder/LonLatToAddress";
@@ -21125,6 +21125,16 @@ GSI.Modal.dsloreDialog = GSI.Modal.Dialog.extend({
 				//name
 				tr=$("<tr>").append($("<td>").css({"width":c1w}).html(names[ary[j]]));
 				//value
+				if (ary[j] == "DisasterInfo"){
+					var ms = /\[(.*?)\]\((.*?)\)/;
+					var mt = ms.exec(ary[j + 1]);
+					while(mt != null){
+					  var hit = mt[0];
+					  var atag = "<a href='" + mt[2] + "' target=_blank>" + mt[1] + "</a>";
+					  ary[j + 1] = ary[j + 1].replace(hit, atag);
+					  mt = ms.exec(ary[j + 1]);
+					}
+				}  
 				$(tr).append( $("<td>").css({"width": c2w}).html(ary[j + 1]) );
   
 				$(tbl).append(tr);
@@ -21895,16 +21905,16 @@ GSI3D.DEMLoader.getURLList = function(x,y,z)
 	if(!GSI3D.DEMLoader.DEMAREA2[key])  return [
 		{
 			url:"https://cyberjapandata.gsi.go.jp/xyz/dem5a_png/{z}/{x}/{y}.png",
-			minZoom : 15,
+			minZoom : 9,
 			maxZoom : 15,
 			complementList : [
-				/*
+				
 				{
-					url:"https://cyberjapandata.gsi.go.jp/xyz/dem10b_png/{z}/{x}/{y}.png",
-					minZoom : 0,
-					maxZoom : 14
+					url:"https://cyberjapandata.gsi.go.jp/xyz/dem5b_png/{z}/{x}/{y}.png",
+					minZoom : 9,
+					maxZoom : 15
 				},
-				*/
+				
 				{
 					url:"https://cyberjapandata.gsi.go.jp/xyz/dem_png/{z}/{x}/{y}.png",
 					minZoom : 0,
@@ -21914,7 +21924,7 @@ GSI3D.DEMLoader.getURLList = function(x,y,z)
 		},
 		{
 			url:"https://cyberjapandata.gsi.go.jp/xyz/dem5b_png/{z}/{x}/{y}.png",
-			minZoom : 15,
+			minZoom : 9,
 			maxZoom : 15,
 			complementList : [
 				{
@@ -21926,7 +21936,7 @@ GSI3D.DEMLoader.getURLList = function(x,y,z)
 		},
 		/*
 		{
-			url:"https://cyberjapandata.gsi.go.jp/xyz/dem10b_png/{z}/{x}/{y}.png",
+			url:"https://cyberjapandata.gsi.go.jp/xyz/dem5c_png/{z}/{x}/{y}.png",
 			minZoom : 0,
 			maxZoom : 14,
 			complementList : [
