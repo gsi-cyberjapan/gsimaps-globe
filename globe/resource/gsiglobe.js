@@ -15025,7 +15025,10 @@ GSI.MapLayerList = MA.Class.extend( {
 		{
 			if(Confirm_FLAG == null){
 				var KARI=this;
-				jConfirm("航空法第１３２条で規定する無人航空機の飛行禁止空域のうち、航空法施行規則第２３６条第１号に掲げる空域（空港等の周辺空域）の投影面下となる場所を表示します。<br>なお、この情報には誤差が含まれている場合がありますので、境界付近等正確な空域については空港等の管理者に確認願います。<br>詳細については、<a target='_blank' href='http://www.mlit.go.jp/koku/koku_tk10_000003.html'>国土交通省ホームページ</a>で確認してください。", '留意事項', function(r) {
+				var mes ="航空法第132条で規定する無人航空機の飛行禁止空域のうち、航空法施行規則第236条第1号から第3号までに掲げる空域（空港等の周辺空域）を表示します。緑色の面は、上空での飛行が禁止される制限表面を表します。紫色の面は、上空及びその下の空域での飛行が禁止される進入表面及び転移表面並びに上空の空域で飛行が禁止される空港等の敷地を表します。<br>" +
+				         "なお、この情報には誤差が含まれている場合があります。また空港等の敷地については工事等により変更がある場合がありますので、境界付近等正確な空域については空港等の管理者に確認願います。<br>" +
+				         "詳細については、<a target='_blank' href='http://www.mlit.go.jp/koku/koku_tk10_000003.html'>国土交通省ホームページ</a>で確認してください。" 
+				jConfirm(mes, '留意事項', function(r) {
 					if(r) {
 						KARI.append(info, noFinishMove, isHide ,1);
 					}
@@ -15033,7 +15036,19 @@ GSI.MapLayerList = MA.Class.extend( {
 				return;
 			}
 		}
-		if (( info.id=="red" )|| ( info.id=="20180906hokkaido_atsuma_sekishoku" ) || ( info.id=="tarumaered" ) || ( info.id=="20180130_kusatsushiranesan_sekishokurittai" ) || ( info.id=="20180309_sekisyokurittai_kirishima" )|| ( info.id=="kuchinoerabured" )|| ( info.id=="2018_sekisyokurittai_azumayama" ))
+		if (( info.id=="red" ) ||
+			( info.id=="20180906hokkaido_atsuma_sekishoku" ) || 
+			( info.id=="tarumaered" ) || 
+			( info.id=="20180130_kusatsushiranesan_sekishokurittai" ) || 
+			( info.id=="20180309_sekisyokurittai_kirishima" ) || 
+			( info.id=="kuchinoerabured" ) || 
+			( info.id=="2018_sekisyokurittai_azumayama" ) || 
+			( info.id=="20190121_sekisyokurittai_kusatsushiranesan") ||
+			( info.id=="20190121_olsorittai_kusatsushiranesan") ||
+	        ( info.id=="miyakejimared") ||
+			( info.id=="20190807asama_sekisyoku") ||
+			( info.id=="oosimared")
+		)
 		{
 			if(Confirm_FLAG == null){
 				var KARI=this;
